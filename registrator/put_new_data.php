@@ -29,7 +29,7 @@ Google\Spreadsheet\ServiceRequestFactory::setInstance($serviceRequest);
 $spreadsheetService = new Google\Spreadsheet\SpreadsheetService();
 $spreadsheetFeed = $spreadsheetService->getSpreadsheets();
 
-$spreadsheet = $spreadsheetFeed->getByTitle('2015年11月7日　出席者リスト');
+$spreadsheet = $spreadsheetFeed->getByTitle('2015年度懇親会　出席者リスト');
 
 $worksheetFeed = $spreadsheet->getWorksheets();
 $worksheet = $worksheetFeed->getByTitle('TT85_20151107');
