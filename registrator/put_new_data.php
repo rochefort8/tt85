@@ -31,31 +31,30 @@ $spreadsheetFeed = $spreadsheetService->getSpreadsheets();
 
 $spreadsheet = $spreadsheetFeed->getByTitle('2015年11月7日　出席者リスト');
 
-
 $worksheetFeed = $spreadsheet->getWorksheets();
 $worksheet = $worksheetFeed->getByTitle('TT85_20151107');
 
 $listFeed = $worksheet->getListFeed();
 
 
+$keys = array("graduate", "name", "email", "message") ;
+
 // array from file
 setlocale(LC_ALL, 'ja_JP.UTF-8');
  
 $file = 'tmp/new.csv';
+
 $data = file_get_contents($file);
 // $data = mb_convert_encoding($data, 'UTF-8', 'sjis-win');
 $temp = tmpfile();
 $csv  = array();
- 
 fwrite($temp, $data);
 rewind($temp);
- 
-$keys = array("graduate", "name", "email", "message") ;
 
 while (($data = fgetcsv($temp, 0, ",")) !== FALSE) {
-    $csv = $data;
-    $row = array_combine($keys,$csv) ;
-    $listFeed->insert($row);
+   $csv = $data;
+   $row = array_combine($keys,$csv) ;
+   $listFeed->insert($row);
 }
 fclose($temp);
 
