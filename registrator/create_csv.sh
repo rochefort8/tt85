@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 rm -rf tmp/list.csv
 for f in $(ls tmp/*.txt)
@@ -36,12 +36,15 @@ do
     fi
 
     subject=$(cat $f | grep "Subject" | grep "\[Form\]") ;
-    if [ "$subject" != "" ]; then
+
+    join=$(cat $f | grep "\[出欠確認\]"| grep "ご出席")
+
+    if [ "$subject" != "" -a "$join" != "" ]; then
 	graduate=$(cat $f | grep "\[卒業期"| cut -d] -f2 | sed 's/^[ \t]*//')
 	name=$(cat $f | grep "\[お名前\]"  | cut -d] -f2 | sed 's/^[ \t]*//')
 	email=$(cat $f | grep "\[メールアドレス\]" | cut -d] -f2| sed 's/^[ \t]*//')
 	message=$(cat $f | grep "\[備考欄\]" | cut -d] -f2| sed 's/^[ \t]*//')
-	if [ "$graduate" != "" -a "$name" != "" ]; then
+	if [ "$name" != "" ]; then
 	    echo  "$graduate,$name,$email,$message" >> tmp/list.csv
 	fi
 	continue 
