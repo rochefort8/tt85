@@ -3,5 +3,5 @@
 rm -rf tmp/*.txt
 php get_email_data.php
 ./create_csv.sh
-cp tmp/list.csv tmp/new.csv
+./remove_dup.sh
 php put_data.php

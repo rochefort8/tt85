@@ -1,6 +1,16 @@
-Subject: [パスワード入手依頼][iOS]
-Body: ------
-[名前]有田優二
-[Email]yuji.arita721@gmail.com
-[期]85
-------
+Subject: [懇親会申し込み][Android]
+Body: ------------------------
+[Name] 土屋博司
+[Email] tsuccie-hiro@docomo.ne.jp
+[Graduate] 85
+[Message] てすとです。
+まあ、参加はしますけどー(笑)
+
+
+受付メールのドメインなんだ？
+ドメインブロックしてるから…
+
+Android版は、、、
+なのかなぁー
+
+-----------------------

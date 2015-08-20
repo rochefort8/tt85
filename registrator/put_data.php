@@ -37,7 +37,6 @@ $worksheet = $worksheetFeed->getByTitle('TT85_20151107');
 
 $listFeed = $worksheet->getListFeed();
 
-
 // array from file
 setlocale(LC_ALL, 'ja_JP.UTF-8');
  
