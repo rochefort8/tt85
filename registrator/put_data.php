@@ -1,5 +1,8 @@
 <?php
 
+$participant_list=$argv[1] ;
+$non_participant_list=$argv[2] ;
+
 require_once('s/vendor/autoload.php');
 
 $G_CLIENT_ID = '1093409669917-r0b7k4fjs0asvjh4a1q193b6akmmb7ed.apps.googleusercontent.com';
@@ -31,16 +34,39 @@ $spreadsheetFeed = $spreadsheetService->getSpreadsheets();
 
 $spreadsheet = $spreadsheetFeed->getByTitle('2015年度懇親会出席者リスト');
 
-
-$worksheetFeed = $spreadsheet->getWorksheets();
-$worksheet = $worksheetFeed->getByTitle('TT85_20151107');
-
-$listFeed = $worksheet->getListFeed();
-
 // array from file
 setlocale(LC_ALL, 'ja_JP.UTF-8');
+
+// ----- Paticipant -----
+$worksheetFeed = $spreadsheet->getWorksheets();
+$worksheet = $worksheetFeed->getByTitle('Participant');
+$listFeed = $worksheet->getListFeed();
+
+$file = $participant_list;
+
+$data = file_get_contents($file);
+// $data = mb_convert_encoding($data, 'UTF-8', 'sjis-win');
+$temp = tmpfile();
+$csv  = array();
  
-$file = 'tmp/new.csv';
+fwrite($temp, $data);
+rewind($temp);
+ 
+$keys = array("graduate", "name", "email", "message") ;
+
+while (($data = fgetcsv($temp, 0, ",")) !== FALSE) {
+    $csv = $data;
+    $row = array_combine($keys,$csv) ;
+    $listFeed->insert($row);
+}
+fclose($temp);
+
+// ----- Non-Paticipant -----
+$worksheetFeed = $spreadsheet->getWorksheets();
+$worksheet = $worksheetFeed->getByTitle('Non-Participant');
+$listFeed = $worksheet->getListFeed();
+
+$file = $non_participant_list;
 $data = file_get_contents($file);
 // $data = mb_convert_encoding($data, 'UTF-8', 'sjis-win');
 $temp = tmpfile();

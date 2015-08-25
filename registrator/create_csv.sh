@@ -1,6 +1,13 @@
 #!/bin/bash
 
-rm -rf tmp/list.csv
+
+dst_participant_list="tmp/participant-raw.csv"
+dst_non_participant_list="tmp/non-participant-raw.csv"
+
+
+rm -rf $dst_participant_list
+rm -rf $dst_non_participant_list
+
 for f in $(ls tmp/*.txt)
 do
     dos2unix $f
@@ -18,7 +25,7 @@ do
 	email=$(cat $f | grep "\[Email\]" | cut -d] -f2| sed 's/^[ \t]*//')
 	message=$(cat $f | grep "\[一言\]" | cut -d] -f2| sed 's/^[ \t]*//')
 	if [ "$graduate" != "" -a "$name" != "" ]; then
-	    echo  "$graduate,$name,$email,$message" >> tmp/list.csv
+	    echo  "$graduate,$name,$email,$message" >> $dst_participant_list
 	fi
 	continue
     fi
@@ -30,7 +37,7 @@ do
 	email=$(cat $f | grep "\[Email\]" | cut -d] -f2| sed 's/^[ \t]*//')
 	message=$(cat $f | grep "\[Message\]" | cut -d] -f2| sed 's/^[ \t]*//')
 	if [ "$graduate" != "" -a "$name" != "" ]; then
-	    echo  "$graduate,$name,$email,$message" >> tmp/list.csv
+	    echo  "$graduate,$name,$email,$message" >> $dst_participant_list
 	fi
 	continue 
     fi
@@ -38,19 +45,26 @@ do
     subject=$(cat $f | grep "Subject" | grep "\[Form\]") ;
 
     join=$(cat $f | grep "\[出欠確認\]"| grep "ご出席")
+    if [ "$join" != "" ]; then
+	list_file=$dst_participant_list
+    else
+	list_file=$dst_non_participant_list
+    fi
 
-    if [ "$subject" != "" -a "$join" != "" ]; then
+    if [ "$subject" != "" ]; then
 	graduate=$(cat $f | grep "\[卒業期"| cut -d] -f2 | sed 's/^[ \t]*//')
 	name=$(cat $f | grep "\[お名前\]"  | cut -d] -f2 | sed 's/^[ \t]*//')
 	email=$(cat $f | grep "\[メールアドレス\]" | cut -d] -f2| sed 's/^[ \t]*//')
 	message=$(cat $f | grep "\[備考欄\]" | cut -d] -f2| sed 's/^[ \t]*//')
 	if [ "$name" != "" ]; then
-	    echo  "$graduate,$name,$email,$message" >> tmp/list.csv
+	    echo  "$graduate,$name,$email,$message" >> $list_file
 	fi
 	continue 
+     
     fi
+    
 done
 
-cat tmp/list.csv
+cat $dst_participant_list
 
 #php put_data.php

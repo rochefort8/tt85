@@ -1,8 +1,11 @@
 #!/bin/bash
 
+src_list=$1
+dst_list=$2
+
 line_cnt_src=0
 
-rm -rf tmp/new.csv
+rm -rf $dst_list
 
 while read src_line
 do
@@ -36,10 +39,10 @@ do
 		break
 	    fi
 	fi
-    done < tmp/list.csv
+    done < $src_list
 
     graduate=$(echo $src_graduate | sed 's/期//')
     if [ "$found" = "y" -a "$dup" = "n" ]; then
-	echo "$graduate","$src_name","$src_email","$src_message" >> tmp/new.csv
+	echo "$graduate","$src_name","$src_email","$src_message" >> $dst_list
     fi
-done < tmp/list.csv
+done < $src_list
