@@ -1,5 +1,8 @@
 #!/bin/sh
 
+workdir=$(dirname $0)
+cd $workdir
+
 rm -rf tmp/*.txt
 php get_email_data.php
 ./create_csv.sh
@@ -9,6 +12,14 @@ php get_email_data.php
 ./extract_new.sh tmp/non-participant.csv tmp/non-participant_a.csv tmp/non-participant_delta.csv
 
 if [ -f tmp/non-participant_delta.csv -o -f tmp/participant_delta.csv ]; then
+
+    if [ ! -f tmp/non-participant_delta.csv ]; then
+	touch tmp/non-participant_delta.csv 
+    fi
+    if [ ! -f tmp/participant_delta.csv ]; then
+	touch tmp/participant_delta.csv 
+    fi
+    
     echo "New data."
     mv tmp/participant_a.csv tmp/participant.csv 
     mv tmp/non-participant_a.csv tmp/non-participant.csv 
