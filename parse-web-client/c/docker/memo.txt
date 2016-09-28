@@ -1,0 +1,24 @@
+# Build docker image
+docker build -t tt-website .
+
+# Run
+docker run -d -p 9000:80 -v $(pwd)/wp-content:/app/wp-content --name=tt-website tt-website
+
+# Stop
+docker rm -f tt-website
+
+# Export mysql data
+docker exec -t tt-website mysqldump -u root wordpress > ./mysql.dump.sql
+
+###-----
+
+# Export
+mysqldump -h us-cdbr-iron-east-04.cleardb.net -u b76d4658316b72 -p --all-databases
+
+
+# Import
+mysql --host=us-cdbr-iron-east-04.cleardb.net --user=b76d4658316b72 --password=a1ab83f5 heroku_d62134a433f7447 < mysql.dump.sql
+
+# Replace URL
+
+../SR/srdb.cli.php -h us-cdbr-iron-east-04.cleardb.net -n heroku_d62134a433f7447 -u b76d4658316b72 -p a1ab83f5 -s='52.205.45.242:9000' -r='tt-website.herokuapp.com'
