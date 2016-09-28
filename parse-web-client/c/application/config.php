@@ -54,9 +54,9 @@ define('DB_HOSTNAME', 'localhost');
 //データベース名
 define('DB_DATABASE', 'db');
 //データベースユーザー名
-define('DB_USERNAME', 'root');
+define('DB_USERNAME', 'ogihara');
 //データベースパスワード
-define('DB_PASSWORD', 'root');
+define('DB_PASSWORD', 'ogihara');
 //テーブル接頭辞
 define('DB_PREFIX', 'customer_');
 //データベースポート番号

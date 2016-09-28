@@ -13,6 +13,8 @@ done
 echo "=> Creating database wordpress in MySQL"
 /create_db.sh db
 
+sleep 5
+mysql -uroot -e "GRANT ALL PRIVILEGES ON db.* TO 'ogihara'@localhost IDENTIFIED BY 'ogihara'"
 
 PASS=${MYSQL_PASS:-$(pwgen -s 12 1)}
 _word=$( [ ${MYSQL_PASS} ] && echo "preset" || echo "random" )
