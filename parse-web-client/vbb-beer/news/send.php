@@ -15,7 +15,7 @@ $file_param1 = isset($_POST["file_param1"])? $_POST["file_param1"] : "";
 
 $file_param1_uploaded_path = isset($_POST["file_param1_uploaded_path"])? $_POST["file_param1_uploaded_path"] : "";
 
-require '../vendor/autoload.php';
+require '../../vendor/autoload.php';
 
 date_default_timezone_set('Asia/Tokyo');
 
@@ -30,11 +30,25 @@ ParseClient::initialize(
 	);
 ParseClient::setServerURL('https://vivabelgianbeer-server.herokuapp.com','parse');
 
-    $obj = ParseObject::create("BeerList");
+function upload_to_parse( $name, $image, $description, $archive )
+{
+    $obj = ParseObject::create("News");
 
-    $obj->set( "name" , $text_param1 ) ;
-    $obj->set( "name_jp" , $text_param2 ) ;
-    $obj->set( "description" , $text_param3 ) ;
+   try {
+     $file_image       = ParseFile::createFromFile( $image ,basename($image)) ;
+     $obj->set( "image" , $file_image ) ;
+     $obj->set( "caption" , $name ) ;
+     $obj->save() ;
+   } catch (\Parse\ParseException $e) {
+      print $e ;
+   }
+}
+
+    $obj = ParseObject::create("News");
+
+    $obj->set( "title" , $text_param1 ) ;
+    $obj->set( "news" , $text_param2 ) ;
+    $obj->set( "link" , $text_param3 ) ;
 
     $file1 = ParseFile::createFromFile( $file_param1_uploaded_path ,basename($file_param1_uploaded_path )) ;
     $obj->set( "image" , $file1 ) ;
