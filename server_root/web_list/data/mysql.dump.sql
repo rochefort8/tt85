@@ -89,7 +89,7 @@ CREATE TABLE `customer_customer` (
   PRIMARY KEY (`id`),
   KEY `customer_index_customer_folder_id` (`folder_id`),
   KEY `customer_index_customer_type` (`customer_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +98,7 @@ CREATE TABLE `customer_customer` (
 
 LOCK TABLES `customer_customer` WRITE;
 /*!40000 ALTER TABLE `customer_customer` DISABLE KEYS */;
-INSERT INTO `customer_customer` VALUES (1,0,0,'è»åŽŸã€€å¯›ç´€','ã‚ªã‚®ãƒãƒ©ã²ã‚ã','é¦™æœˆ','ãƒ†ãƒ‹ã‚¹','','','276-0022','åƒè‘‰çœŒå…«åƒä»£å¸‚ä¸Šé«˜é‡Ž','ã¡ã°ã‘ã‚“ã‚„ã¡ã‚ˆã—ã‹ã¿ã“ã†ã‚„','','85','','','','',0,'','','','','','','','','','','ogihara','ogihara','2016-10-05 06:21:54','2016-10-09 02:19:20'),(2,0,0,'è»åŽŸã€€å°šè²´','ã‚ªã‚®ãƒãƒ©ãƒŠã‚ªã‚­','æœ¨å±‹ç€¬','å¹å¥æ¥½','','','','','','','113','','','','',0,'','','','','','','','','','','ogihara','ogihara','2016-10-05 06:58:31','2016-10-09 02:18:50');
+INSERT INTO `customer_customer` VALUES (4,0,0,'è»åŽŸã€€å°šè²´','ãŠãŽã¯ã‚‰ãªãŠã','æœ¨å±‹ç€¬ä¸­','å¹å¥æ¥½','','','','','','','85','','','','',0,'','','','','','','','','','','ogihara','ogihara','2016-10-09 12:06:28','2016-10-09 12:07:22'),(5,0,0,'è»åŽŸã€€å¯›ç´€','ã‚ªã‚®ãƒãƒ©ã²ã‚ã','æ²–ç”°ä¸­','ãƒ•ã‚©ãƒ¼ã‚¯åŒå¥½ä¼š','','','','','','','102','','','','',0,'','','','','','','','','','','ogihara',NULL,'2016-10-09 12:08:02',NULL);
 /*!40000 ALTER TABLE `customer_customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -328,4 +328,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-09  2:19:30
+-- Dump completed on 2016-10-09 12:08:30

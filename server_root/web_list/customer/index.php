@@ -43,9 +43,13 @@ if ($view->authorize('administrator', 'manager')) {
 </td><td>
 	<table class="list" cellspacing="0">
 		<tr><th><?=$pagination->sortby('customer_name', '名前')?></th>
+		<th><?=$pagination->sortby('customer_graduate', '卒業期')?></th>
+		<th><?=$pagination->sortby('customer_email', 'メールアドレス')?></th>
 		<th><?=$pagination->sortby('customer_postcode', '郵便番号')?></th>
 		<th><?=$pagination->sortby('customer_address', '住所')?></th>
 		<th><?=$pagination->sortby('customer_phone', '電話番号')?></th>
+		<th><?=$pagination->sortby('customer_juniorhighschool', '出身中学')?></th>
+		<th><?=$pagination->sortby('customer_club', '部活動')?></th>
 		<?=$liquid->listheader($hash['item'], $pagination)?></tr>
 <?php
 if (is_array($hash['list']) && count($hash['list']) > 0) {
@@ -55,10 +59,13 @@ if (is_array($hash['list']) && count($hash['list']) > 0) {
 		<tr><td><a href="../history/customer.php?parent=<?=$row['id']?>"><?=$row['customer_name']?></a>&nbsp;</td>
 -->
 		<tr><td><a href="./view.php?id=<?=$row['id']?>"><?=$row['customer_name']?></a>&nbsp;</td>
-
+		<td><?=$row['customer_graduate']?>&nbsp;</td>
+		<td><?=$row['customer_email']?>&nbsp;</td>
 		<td><?=$row['customer_postcode']?>&nbsp;</td>
 		<td><?=$row['customer_address']?>&nbsp;</td>
 		<td><?=$row['customer_phone']?>&nbsp;</td>
+		<td><?=$row['customer_juniorhighschool']?>&nbsp;</td>
+		<td><?=$row['customer_club']?>&nbsp;</td>
 		<?=$liquid->listcontent($hash['item'], $row)?></tr>
 <?php
 	}
