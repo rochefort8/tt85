@@ -25,8 +25,8 @@ $liquid = new Liquid;
 <form class="content" method="post" name="customer" action="">
 	<?=$view->error($hash['error'])?>
 	<table class="form" cellspacing="0">
-		<tr><th>会社名<span class="necessary">(必須)</span></th><td><input type="text" name="customer_company" class="inputvalue" value="<?=$hash['data']['customer_company']?>" /></td></tr>
-		<tr><th>会社名（かな）</th><td><input type="text" name="customer_companyruby" class="inputvalue" value="<?=$hash['data']['customer_companyruby']?>" /></td></tr>
+		<tr><th>会社名<span class="necessary">(必須)</span></th><td><input type="text" name="customer_juniorhighschool" class="inputvalue" value="<?=$hash['data']['customer_juniorhighschool']?>" /></td></tr>
+		<tr><th>会社名（かな）</th><td><input type="text" name="customer_juniorhighschool" class="inputvalue" value="<?=$hash['data']['customer_juniorhighschool']?>" /></td></tr>
 		<tr><th>部署</th><td><input type="text" name="customer_department" class="inputvalue" value="<?=$hash['data']['customer_department']?>" /></td></tr>
 		<tr><th>担当者</th><td><input type="text" name="customer_name" class="inputvalue" value="<?=$hash['data']['customer_name']?>" /></td></tr>
 		<tr><th>役職</th><td><input type="text" name="customer_position" class="inputvalue" value="<?=$hash['data']['customer_position']?>" /></td></tr>
@@ -40,7 +40,7 @@ $liquid = new Liquid;
 		</td></tr>
 		<tr><th>住所（かな）</th><td><input type="text" name="customer_addressruby" id="addressruby" class="inputtitle" value="<?=$hash['data']['customer_addressruby']?>" /></td></tr>
 		<tr><th>電話番号</th><td><input type="text" name="customer_phone" class="inputalpha" value="<?=$hash['data']['customer_phone']?>" /></td></tr>
-		<tr><th>FAX</th><td><input type="text" name="customer_fax" class="inputalpha" value="<?=$hash['data']['customer_fax']?>" /></td></tr>
+		<tr><th>FAX</th><td><input type="text" name="customer_graduate" class="inputalpha" value="<?=$hash['data']['customer_graduate']?>" /></td></tr>
 		<tr><th>メールアドレス</th><td><input type="text" name="customer_email" class="inputvalue" value="<?=$hash['data']['customer_email']?>" /></td></tr>
 		<tr><th>URL</th><td><input type="text" name="customer_url" class="inputvalue" value="<?=$hash['data']['customer_url']?>" /></td></tr>
 		<?=$liquid->form($hash['item'], $hash['data'])?>

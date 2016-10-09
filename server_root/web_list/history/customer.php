@@ -19,7 +19,6 @@ $liquid = new Liquid;
 	<h1>履歴</h1>
 	<table class="customertype" cellspacing="0"><tr>
 		<td><a<?=$current[0]?> href="index.php">個人</a></td>
-		<td><a<?=$current[1]?> href="index.php?type=1">法人</a></td>
 	</tr></table>
 	<div class="clearer"></div>
 </div>
@@ -31,7 +30,7 @@ $liquid = new Liquid;
 <?php
 if ($hash['parent']['customer_type'] == 1) {
 ?>
-	<tr><th>会社名</th><td><?=$hash['parent']['customer_company']?>&nbsp;</td></tr>
+	<tr><th>会社名</th><td><?=$hash['parent']['customer_juniorhighschool']?>&nbsp;</td></tr>
 	<tr><th>部署</th><td><?=$hash['parent']['customer_department']?>&nbsp;</td></tr>
 	<tr><th>担当者</th><td><?=$hash['parent']['customer_name']?>&nbsp;</td></tr>
 <?php

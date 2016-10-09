@@ -66,7 +66,7 @@ class History extends ApplicationModel {
 				$this->post['customer_id'] = $hash['parent']['id'];
 				$this->post['customer_type'] = $hash['parent']['customer_type'];
 				if ($hash['parent']['customer_type'] == 1) {
-					$this->post['customer_name'] = $hash['parent']['customer_company'];
+					$this->post['customer_name'] = $hash['parent']['customer_juniorhighschool'];
 				} else {
 					$this->post['customer_name'] = $hash['parent']['customer_name'];
 				}
@@ -130,7 +130,7 @@ class History extends ApplicationModel {
 			$this->where[] = "(customer_id = ".intval($hash['parent']['id']).")";
 			$folder = $hash['parent']['folder_id'];
 			if ($hash['parent']['customer_type'] == 1) {
-				$array[] = array('会社名', $hash['parent']['customer_company']);
+				$array[] = array('会社名', $hash['parent']['customer_juniorhighschool']);
 				$array[] = array('部署', $hash['parent']['customer_department']);
 				$array[] = array('担当者', $hash['parent']['customer_name']);
 			} else {

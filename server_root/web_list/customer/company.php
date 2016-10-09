@@ -39,7 +39,7 @@ if ($view->authorize('administrator', 'manager')) {
 	<?=$view->category($hash['folder'], 'customer', 'company.php')?>
 </td><td>
 	<table class="list" cellspacing="0">
-		<tr><th><?=$pagination->sortby('customer_company', '会社名')?></th>
+		<tr><th><?=$pagination->sortby('customer_juniorhighschool', '会社名')?></th>
 		<th><?=$pagination->sortby('customer_postcode', '郵便番号')?></th>
 		<th><?=$pagination->sortby('customer_address', '住所')?></th>
 		<th><?=$pagination->sortby('customer_phone', '電話番号')?></th>
@@ -48,7 +48,7 @@ if ($view->authorize('administrator', 'manager')) {
 if (is_array($hash['list']) && count($hash['list']) > 0) {
 	foreach ($hash['list'] as $row) {
 ?>
-		<tr><td><a href="../history/customer.php?parent=<?=$row['id']?>"><?=$row['customer_company']?></a>&nbsp;</td>
+		<tr><td><a href="../history/customer.php?parent=<?=$row['id']?>"><?=$row['customer_juniorhighschool']?></a>&nbsp;</td>
 		<td><?=$row['customer_postcode']?>&nbsp;</td>
 		<td><?=$row['customer_address']?>&nbsp;</td>
 		<td><?=$row['customer_phone']?>&nbsp;</td>

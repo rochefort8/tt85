@@ -8,7 +8,7 @@ require_once('../application/loader.php');
 $view->script('postcode.js');
 $view->heading('顧客情報詳細');
 if ($hash['data']['customer_parent'] > 0) {
-	$hash['data']['customer_company'] = sprintf('<a href="companyview.php?id=%d">%s</a>', $hash['data']['customer_parent'], $hash['data']['customer_company']);
+	$hash['data']['customer_juniorhighschool'] = sprintf('<a href="companyview.php?id=%d">%s</a>', $hash['data']['customer_parent'], $hash['data']['customer_juniorhighschool']);
 }
 $liquid = new Liquid;
 ?>
@@ -21,7 +21,6 @@ $liquid = new Liquid;
 	<div class="clearer"></div>
 </div>
 <ul class="operate">
-	<li><a href="../history/customer.php?parent=<?=$hash['data']['id']?>">履歴一覧に戻る</a></li>
 <?php
 if ($view->permitted($hash['category'], 'add')) {
 	echo '<li><a href="add.php?id='.$hash['data']['id'].'">複製</a></li>';
@@ -33,17 +32,16 @@ if ($view->permitted($hash['category'], 'add')) {
 <table class="view" cellspacing="0">
 	<tr><th>名前</th><td><?=$hash['data']['customer_name']?>&nbsp;</td></tr>
 	<tr><th>かな</th><td><?=$hash['data']['customer_ruby']?>&nbsp;</td></tr>
+	<tr><th>卒業期</th><td><?=$hash['data']['customer_graduate']?>&nbsp;</td></tr>
+	<tr><th>メールアドレス</th><td><?=$hash['data']['customer_email']?>&nbsp;</td></tr>
 	<tr><th>郵便番号</th><td><?=$hash['data']['customer_postcode']?>&nbsp;</td></tr>
 	<tr><th>住所</th><td><?=$hash['data']['customer_address']?>&nbsp;</td></tr>
 	<tr><th>住所（かな）</th><td><?=$hash['data']['customer_addressruby']?>&nbsp;</td></tr>
 	<tr><th>電話番号</th><td><?=$hash['data']['customer_phone']?>&nbsp;</td></tr>
-	<tr><th>FAX</th><td><?=$hash['data']['customer_fax']?>&nbsp;</td></tr>
 	<tr><th>携帯電話番号</th><td><?=$hash['data']['customer_mobile']?>&nbsp;</td></tr>
-	<tr><th>メールアドレス</th><td><?=$hash['data']['customer_email']?>&nbsp;</td></tr>
-	<tr><th>会社名</th><td><?=$hash['data']['customer_company']?>&nbsp;</td></tr>
-	<tr><th>会社名（かな）</th><td><?=$hash['data']['customer_companyruby']?>&nbsp;</td></tr>
-	<tr><th>部署</th><td><?=$hash['data']['customer_department']?>&nbsp;</td></tr>
-	<tr><th>役職</th><td><?=$hash['data']['customer_position']?>&nbsp;</td></tr>
+
+	<tr><th>出身中学</th><td><?=$hash['data']['customer_juniorhighschool']?>&nbsp;</td></tr>
+	<tr><th>部活動</th><td><?=$hash['data']['customer_club']?>&nbsp;</td></tr>
 	<tr><th>URL</th><td><?=$hash['data']['customer_url']?>&nbsp;</td></tr>
 	<?=$liquid->view($hash['item'], $hash['data'])?>
 	<tr><th>備考</th><td><?=nl2br($hash['data']['customer_comment'])?>&nbsp;</td></tr>

@@ -23,8 +23,8 @@ $liquid = new Liquid;
 <form class="content" method="post" action="">
 	<?=$view->error($hash['error'], '下記の顧客情報を削除します。')?>
 	<table class="view" cellspacing="0">
-		<tr><th>会社名</th><td><?=$hash['data']['customer_company']?>&nbsp;</td></tr>
-		<tr><th>会社名（かな）</th><td><?=$hash['data']['customer_companyruby']?>&nbsp;</td></tr>
+		<tr><th>会社名</th><td><?=$hash['data']['customer_juniorhighschool']?>&nbsp;</td></tr>
+		<tr><th>会社名（かな）</th><td><?=$hash['data']['customer_juniorhighschool']?>&nbsp;</td></tr>
 		<tr><th>部署</th><td><?=$hash['data']['customer_department']?>&nbsp;</td></tr>
 		<tr><th>担当者</th><td><?=$hash['data']['customer_name']?></td></tr>
 		<tr><th>役職</th><td><?=$hash['data']['customer_position']?></td></tr>
@@ -32,7 +32,7 @@ $liquid = new Liquid;
 		<tr><th>住所</th><td><?=$hash['data']['customer_address']?>&nbsp;</td></tr>
 		<tr><th>住所（かな）</th><td><?=$hash['data']['customer_addressruby']?>&nbsp;</td></tr>
 		<tr><th>電話番号</th><td><?=$hash['data']['customer_phone']?>&nbsp;</td></tr>
-		<tr><th>FAX</th><td><?=$hash['data']['customer_fax']?>&nbsp;</td></tr>
+		<tr><th>FAX</th><td><?=$hash['data']['customer_graduate']?>&nbsp;</td></tr>
 		<tr><th>メールアドレス</th><td><?=$hash['data']['customer_email']?>&nbsp;</td></tr>
 		<tr><th>URL</th><td><?=$hash['data']['customer_url']?>&nbsp;</td></tr>
 		<?=$liquid->view($hash['item'], $hash['data'])?>

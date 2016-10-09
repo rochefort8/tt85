@@ -58,15 +58,15 @@ CREATE TABLE `customer_customer` (
   `customer_type` int(11) NOT NULL,
   `customer_name` text,
   `customer_ruby` text,
-  `customer_company` text,
-  `customer_companyruby` text,
+  `customer_juniorhighschool` text,
+  `customer_club` text,
   `customer_department` text,
   `customer_position` text,
   `customer_postcode` text,
   `customer_address` text,
   `customer_addressruby` text,
   `customer_phone` text,
-  `customer_fax` text,
+  `customer_graduate` text,
   `customer_mobile` text,
   `customer_email` text,
   `customer_url` text,
@@ -98,7 +98,7 @@ CREATE TABLE `customer_customer` (
 
 LOCK TABLES `customer_customer` WRITE;
 /*!40000 ALTER TABLE `customer_customer` DISABLE KEYS */;
-INSERT INTO `customer_customer` VALUES (1,0,0,'è»åŽŸ','ã‚','','','','','276-0022','åƒè‘‰çœŒå…«åƒä»£å¸‚ä¸Šé«˜é‡Ž','ã¡ã°ã‘ã‚“ã‚„ã¡ã‚ˆã—ã‹ã¿ã“ã†ã‚„','','','','','','',0,'','','','','','','','','','','ogihara',NULL,'2016-10-05 06:21:54',NULL),(2,0,0,'ãªãŠã','','','','','','','','','','','','','','',0,'','','','','','','','','','','ogihara',NULL,'2016-10-05 06:58:31',NULL);
+INSERT INTO `customer_customer` VALUES (1,0,0,'è»åŽŸã€€å¯›ç´€','ã‚ªã‚®ãƒãƒ©ã²ã‚ã','é¦™æœˆ','ãƒ†ãƒ‹ã‚¹','','','276-0022','åƒè‘‰çœŒå…«åƒä»£å¸‚ä¸Šé«˜é‡Ž','ã¡ã°ã‘ã‚“ã‚„ã¡ã‚ˆã—ã‹ã¿ã“ã†ã‚„','','85','','','','',0,'','','','','','','','','','','ogihara','ogihara','2016-10-05 06:21:54','2016-10-09 02:19:20'),(2,0,0,'è»åŽŸã€€å°šè²´','ã‚ªã‚®ãƒãƒ©ãƒŠã‚ªã‚­','æœ¨å±‹ç€¬','å¹å¥æ¥½','','','','','','','113','','','','',0,'','','','','','','','','','','ogihara','ogihara','2016-10-05 06:58:31','2016-10-09 02:18:50');
 /*!40000 ALTER TABLE `customer_customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -328,4 +328,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-05  6:58:42
+-- Dump completed on 2016-10-09  2:19:30

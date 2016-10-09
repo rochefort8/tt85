@@ -6,22 +6,21 @@
  */
 require_once('../application/loader.php');
 $view->script('postcode.js');
-$view->heading('顧客情報');
+$view->heading('メンバ');
 $pagination = new Pagination(array('folder'=>$_GET['folder']));
 $liquid = new Liquid;
 ?>
 <div class="contentcontrol">
-	<h1>顧客情報<?=$view->caption($hash['folder'], array('all'=>'すべて表示'))?></h1>
+	<h1>名簿操作<?=$view->caption($hash['folder'], array('all'=>'すべて表示'))?></h1>
 	<table class="customertype" cellspacing="0"><tr>
 		<td><a class="current" href="index.php">個人</a></td>
-		<td><a href="company.php">法人</a></td>
 	</tr></table>
 	<div class="clearer"></div>
 </div>
 <ul class="operate">
 <?php
 if ($view->permitted($hash['category'], 'add')) {
-	echo '<li><a href="add.php'.$view->parameter(array('folder'=>$_GET['folder'])).'">顧客追加</a></li>';
+	echo '<li><a href="add.php'.$view->parameter(array('folder'=>$_GET['folder'])).'">新規登録</a></li>';
 }
 if (count($hash['list']) <= 0) {
 	$attribute = ' onclick="alert(\'出力するデータがありません。\');return false;"';
@@ -34,9 +33,13 @@ if ($view->authorize('administrator', 'manager')) {
 }
 ?>
 </ul>
+
 <?=$view->searchform(array('folder'=>$_GET['folder']))?>
+
 <table class="content" cellspacing="0"><tr><td class="contentfolder">
+<!--
 	<?=$view->category($hash['folder'], 'customer')?>
+-->
 </td><td>
 	<table class="list" cellspacing="0">
 		<tr><th><?=$pagination->sortby('customer_name', '名前')?></th>
@@ -48,7 +51,11 @@ if ($view->authorize('administrator', 'manager')) {
 if (is_array($hash['list']) && count($hash['list']) > 0) {
 	foreach ($hash['list'] as $row) {
 ?>
+<!--
 		<tr><td><a href="../history/customer.php?parent=<?=$row['id']?>"><?=$row['customer_name']?></a>&nbsp;</td>
+-->
+		<tr><td><a href="./view.php?id=<?=$row['id']?>"><?=$row['customer_name']?></a>&nbsp;</td>
+
 		<td><?=$row['customer_postcode']?>&nbsp;</td>
 		<td><?=$row['customer_address']?>&nbsp;</td>
 		<td><?=$row['customer_phone']?>&nbsp;</td>

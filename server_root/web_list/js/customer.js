@@ -86,7 +86,7 @@ Customer.configdefault = function (object) {
 Customer.companylist = function (object) {
 	
 	try {
-		var string = document.forms['customer'].elements['customer_company'].value;
+		var string = document.forms['customer'].elements['customer_juniorhighschool'].value;
 		if (string && string.length > 0) {
 			App.loader('companylist.php', {search: string}, 'companylist');
 		} else {
@@ -102,8 +102,8 @@ Customer.set = function (id, company, companyruby, department, url) {
 	
 	try {
 		var element = document.forms['customer'].elements;
-		element['customer_company'].value = company;
-		element['customer_companyruby'].value = companyruby;
+		element['customer_juniorhighschool'].value = company;
+		element['customer_juniorhighschool'].value = companyruby;
 		element['customer_department'].value = department;
 		element['customer_url'].value = url;
 		document.getElementById('belong').innerHTML = '<input type="checkbox" name="customer_parent" id="customer_parent" value="' + id + '" checked="checked" /><label for="customer_parent">リンク</label>';
