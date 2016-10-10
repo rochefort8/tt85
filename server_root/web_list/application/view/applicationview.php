@@ -169,7 +169,12 @@ class ApplicationView extends View {
 		$string .= $_SERVER['SCRIPT_NAME'].$this->parameter($parameter);
 		$string .= '"><input type="text" name="search" id="search" class="inputsearch" value="';
 		$string .= $this->escape($_REQUEST['search']);
-		$string .= '" /><input type="submit" value="検索" /></form>';
+		$string .= '" />';
+		$string .= '<input type="radio" name="key" value="all" checked="checked" />全文';
+		$string .= '<input type="radio" name="key" value="graduate" />卒業期' ; 
+		$string .= '<input type="radio" name="key" value="club" />部活動';
+		$string .= '<input type="radio" name="key" value="juniorhighschool" />出身中学';
+		$string .= '<input type="submit" value="検索" /></form>';
 		return $string;
 		
 	}

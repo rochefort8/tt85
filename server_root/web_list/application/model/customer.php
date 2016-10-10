@@ -44,14 +44,27 @@ class Customer extends ApplicationModel {
 	}
 	
 	function index($type = 0) {
-		
+
 		$hash = $this->permitCategory('customer', $_GET['folder']);
+
+		$key = $_REQUEST['key'];
+		if ( $key == 'graduate' ) {
+		   $array = array('customer_graduate') ;
+		} else if ( $key == 'club' ) {
+		   $array = array('customer_club') ;
+		} else if ( $key == 'juniorhighschool' ) {
+		   $array = array('customer_juniorhighschool') ;
+		} else {
+		   $array = array() ;
+		}
+		
 		$this->where[] = $this->folderWhere($hash['folder']);
 		$this->where[] = "(customer_type = ".intval($type).")";
-		$hash += $this->findLimit('id', 1);
+		$hash += $this->findLimit('id', 1,$array) ;
 		if ($_GET['folder'] != 'all') {
 			$hash['item'] = $this->item->findItem('customer', $_GET['folder']);
 		}
+
 		return $hash;
 	
 	}
