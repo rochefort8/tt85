@@ -215,6 +215,7 @@ class Model extends Connection {
 				$this->post['editor'] = $_SESSION['userid'];
 				$this->post['updated'] = date('Y-m-d H:i:s');
 				foreach ($field as $key) {
+					error_log('OGI++'.$key);
 					if (array_key_exists($key, $this->post)) {
 						$array[] = $key." = '".$this->quote($this->post[$key])."'";
 					}

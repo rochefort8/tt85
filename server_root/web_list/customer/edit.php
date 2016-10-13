@@ -10,8 +10,8 @@ require_once('./graduate_list.php');
 $view->script('postcode.js');
 $view->heading('顧客情報編集');
 $hash['folder'] = array('&nbsp;') + $hash['folder'];
-if (intval($hash['data']['customer_parent']) > 0) {
-	$belong = $helper->checkbox('customer_parent', intval($hash['data']['customer_parent']), intval($hash['data']['customer_parent']), 'customer_parent', 'リンク');
+if (intval($hash['data']['customer_position']) > 0) {
+	$belong = $helper->checkbox('customer_position', intval($hash['data']['customer_position']), intval($hash['data']['customer_position']), 'customer_position', 'リンク');
 }
 $liquid = new Liquid;
 ?>
@@ -31,8 +31,13 @@ $liquid = new Liquid;
 <form class="content" method="post" name="customer" action="">
 	<?=$view->error($hash['error'])?>
 	<table class="form" cellspacing="0">
+		<tr><th>ID</th><td><?=$hash['data']['customer_id']?></td></tr>
+
 		<tr><th>名前<span class="necessary">(必須)</span></th><td><input type="text" name="customer_name" class="inputvalue" value="<?=$hash['data']['customer_name']?>" /></td></tr>
 		<tr><th>かな</th><td><input type="text" name="customer_ruby" class="inputvalue" value="<?=$hash['data']['customer_ruby']?>" /></td></tr>
+
+		<tr><th>性別</th><td><input type="text" name="customer_gender" class="inputvalue" value="<?=$hash['data']['customer_gender']?>" /></td></tr>
+
 		<tr><th>卒業期</th><td><?php echo display_graduate_list($hash['data']['customer_graduate']); ?></td></tr>
 <!---
 		<tr><th>卒業期</th><td><input type="text" name="customer_graduate" class="inputalpha" value="<?=$hash['data']['customer_graduate']?>" /></td></tr>
@@ -52,8 +57,13 @@ $liquid = new Liquid;
 
 		<tr><th>出身中学</th><td><?php echo display_juniorhighschool_list($hash['data']['customer_juniorhighschool']) ; ?></td></tr>
 		<tr><th>部活動</th><td><?php echo display_club_list($hash['data']['customer_club']) ; ?></td></tr>
+
+		<tr><th>役割</th><td><input type="text" name="customer_position" class="inputvalue" value="<?=$hash['data']['customer_position']?>" /></td></tr>
+
 		<tr><th>備考</th><td><textarea name="customer_comment" class="inputcomment" rows="5"><?=$hash['data']['customer_comment']?></textarea></td></tr>
 		<tr><th>カテゴリ</th><td><?=$helper->selector('folder_id', $hash['folder'], $hash['data']['folder_id'])?></td></tr>
+		<tr><th>ID</th><td><input type="text" name="customer_id" class="inputvalue" value="<?=$hash['data']['customer_id']?>" /></td></tr>	
+
 	</table>
 	<div class="submit">
 		<input type="submit" value="　編集　" />&nbsp;

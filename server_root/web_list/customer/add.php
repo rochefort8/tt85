@@ -11,8 +11,8 @@ $view->script('postcode.js');
 $view->heading('顧客追加');
 $hash['data']['folder_id'] = $view->initialize($hash['data']['folder_id'], $_GET['folder']);
 $hash['folder'] = array('&nbsp;') + $hash['folder'];
-if ($hash['data']['customer_parent'] > 0) {
-	$belong = $helper->checkbox('customer_parent', intval($hash['data']['customer_parent']), intval($hash['data']['customer_parent']), 'customer_parent', 'リンク');
+if ($hash['data']['customer_position'] > 0) {
+	$belong = $helper->checkbox('customer_position', intval($hash['data']['customer_position']), intval($hash['data']['customer_position']), 'customer_position', 'リンク');
 }
 $liquid = new Liquid;
 ?>
@@ -52,6 +52,7 @@ $liquid = new Liquid;
 		<tr><th>部活動</th><td><?php echo display_club_list() ; ?></td></tr>
 
 		<tr><th>備考</th><td><textarea name="customer_comment" class="inputcomment" rows="5"><?=$hash['data']['customer_comment']?></textarea></td></tr>
+		<tr><th>ID</th><td><input type="text" name="customer_id" class="inputvalue" value="<?=$hash['data']['customer_id']?>" /></td></tr>
 		<tr><th>カテゴリ</th><td><?=$helper->selector('folder_id', $hash['folder'], $hash['data']['folder_id'])?></td></tr>
 	</table>
 	<div class="submit">

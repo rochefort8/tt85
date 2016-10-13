@@ -14,22 +14,25 @@ class Customer extends ApplicationModel {
 		$this->schema = array(
 		'folder_id'=>array('カテゴリ', 'notnull', 'numeric', 'except'=>array('search')),
 		'customer_type'=>array('分類', 'notnull', 'numeric', 'except'=>array('search', 'update')),
+		'customer_id'=>array('ID', 'length:1000'),
 		'customer_name'=>array('名前', 'length:100'),
 		'customer_ruby'=>array('かな', 'length:100'),
-		'customer_juniorhighschool'=>array('会社名', 'length:100'),
-		'customer_club'=>array('会社名(かな)', 'length:100'),
-		'customer_department'=>array('部署', 'length:1000'),
-		'customer_position'=>array('役職', 'length:1000'),
+		'customer_graduate'=>array('卒業期', 'length:20'),
 		'customer_postcode'=>array('郵便番号', 'length:8'),
 		'customer_address'=>array('住所', 'length:1000'),
 		'customer_addressruby'=>array('住所(かな)', 'length:1000'),
 		'customer_phone'=>array('電話番号', 'length:20'),
-		'customer_graduate'=>array('FAX', 'length:20'),
+
+		'customer_juniorhighschool'=>array('出身中学', 'length:100'),
+		'customer_club'=>array('部活動', 'length:100'),
+		'customer_department'=>array('部署', 'length:1000'),
+		'customer_gender'=>array('職', 'length:20'),
+
 		'customer_mobile'=>array('携帯電話', 'length:20'),
 		'customer_email'=>array('メールアドレス', 'length:1000'),
-		'customer_url'=>array('URL', 'length:1000'),
+
 		'customer_comment'=>array('備考', 'length:10000', 'line:100'),
-		'customer_parent'=>array('会社情報ID', 'numeric', 'except'=>array('search')));
+		'customer_position'=>array('会社情報ID', 'numeric', 'except'=>array('search')));
 		for ($i = 0; $i < 10; $i++) {
 			$this->schema[sprintf('customer_item%02d', $i)] = array();
 		}
@@ -74,11 +77,11 @@ class Customer extends ApplicationModel {
 		$hash['data'] = $this->findView();
 		$hash += $this->permitCategory('customer', $hash['data']['folder_id']);
 		$hash['item'] = $this->item->findItem('customer', $hash['data']['folder_id']);
-		if ($hash['data']['customer_parent'] > 0) {
+		if ($hash['data']['customer_position'] > 0) {
 			$field = implode(',', $this->schematize());
-			$data = $this->fetchOne("SELECT ".$field." FROM ".$this->table." WHERE id = ".intval($hash['data']['customer_parent']));
+			$data = $this->fetchOne("SELECT ".$field." FROM ".$this->table." WHERE id = ".intval($hash['data']['customer_position']));
 			if (!$this->permitted($data, 'public')) {
-				$hash['data']['customer_parent'] = '';
+				$hash['data']['customer_position'] = '';
 			}
 		}
 		$hash += $this->findUser($hash['data']);
@@ -213,14 +216,14 @@ class Customer extends ApplicationModel {
 			'customer_juniorhighschool'=>'会社名(かな)',
 			'customer_department'=>'部署',
 			'customer_name'=>'担当者',
-			'customer_position'=>'役職',
+			'customer_gender'=>'役職',
 			'customer_postcode'=>'郵便番号',
 			'customer_address'=>'住所',
 			'customer_addressruby'=>'住所(かな)',
 			'customer_phone'=>'電話番号',
 			'customer_graduate'=>'FAX',
 			'customer_email'=>'メールアドレス',
-			'customer_url'=>'URL');
+			'customer_id'=>'URL');
 		} else {
 			$field = array('customer_name'=>'名前',
 			'customer_ruby'=>'かな',
@@ -234,8 +237,9 @@ class Customer extends ApplicationModel {
 			'customer_juniorhighschool'=>'会社名',
 			'customer_juniorhighschool'=>'会社名(かな)',
 			'customer_department'=>'部署',
-			'customer_position'=>'役職',
-			'customer_url'=>'URL');
+			'customer_gender'=>'役職',
+			'customer_gender'=>'性別',
+			'customer_id'=>'URL');
 		}
 		if ($_GET['folder'] != 'all') {
 			$item = $this->item->findItem('customer', $_GET['folder']);

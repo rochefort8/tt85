@@ -30,7 +30,7 @@ $liquid = new Liquid;
 		<tr><th>会社名（かな）</th><td><input type="text" name="customer_juniorhighschool" class="inputvalue" value="<?=$hash['data']['customer_juniorhighschool']?>" /></td></tr>
 		<tr><th>部署</th><td><input type="text" name="customer_department" class="inputvalue" value="<?=$hash['data']['customer_department']?>" /></td></tr>
 		<tr><th>担当者</th><td><input type="text" name="customer_name" class="inputvalue" value="<?=$hash['data']['customer_name']?>" /></td></tr>
-		<tr><th>役職</th><td><input type="text" name="customer_position" class="inputvalue" value="<?=$hash['data']['customer_position']?>" /></td></tr>
+		<tr><th>役職</th><td><input type="text" name="customer_gender" class="inputvalue" value="<?=$hash['data']['customer_gender']?>" /></td></tr>
 		<tr><th>郵便番号</th><td>
 			<input type="text" name="customer_postcode" id="postcode" class="inputalpha" value="<?=$hash['data']['customer_postcode']?>" />&nbsp;
 			<input type="button" value="検索" onclick="Postcode.feed(this)" />
@@ -43,7 +43,7 @@ $liquid = new Liquid;
 		<tr><th>電話番号</th><td><input type="text" name="customer_phone" class="inputalpha" value="<?=$hash['data']['customer_phone']?>" /></td></tr>
 		<tr><th>FAX</th><td><input type="text" name="customer_graduate" class="inputalpha" value="<?=$hash['data']['customer_graduate']?>" /></td></tr>
 		<tr><th>メールアドレス</th><td><input type="text" name="customer_email" class="inputvalue" value="<?=$hash['data']['customer_email']?>" /></td></tr>
-		<tr><th>URL</th><td><input type="text" name="customer_url" class="inputvalue" value="<?=$hash['data']['customer_url']?>" /></td></tr>
+		<tr><th>URL</th><td><input type="text" name="customer_id" class="inputvalue" value="<?=$hash['data']['customer_id']?>" /></td></tr>
 		<?=$liquid->form($hash['item'], $hash['data'])?>
 		<tr><th>備考</th><td><textarea name="customer_comment" class="inputcomment" rows="5"><?=$hash['data']['customer_comment']?></textarea></td></tr>
 		<tr><th>カテゴリ</th><td><?=$helper->selector('folder_id', $hash['folder'], $hash['data']['folder_id'])?></td></tr>

@@ -7,8 +7,8 @@
 require_once('../application/loader.php');
 $view->script('postcode.js');
 $view->heading('顧客情報詳細');
-if ($hash['data']['customer_parent'] > 0) {
-	$hash['data']['customer_juniorhighschool'] = sprintf('<a href="companyview.php?id=%d">%s</a>', $hash['data']['customer_parent'], $hash['data']['customer_juniorhighschool']);
+if ($hash['data']['customer_position'] > 0) {
+	$hash['data']['customer_juniorhighschool'] = sprintf('<a href="companyview.php?id=%d">%s</a>', $hash['data']['customer_position'], $hash['data']['customer_juniorhighschool']);
 }
 $liquid = new Liquid;
 ?>
@@ -30,8 +30,10 @@ if ($view->permitted($hash['category'], 'add')) {
 ?>
 </ul>
 <table class="view" cellspacing="0">
+	<tr><th>ID</th><td><?=$hash['data']['customer_id']?>&nbsp;</td></tr>
 	<tr><th>名前</th><td><?=$hash['data']['customer_name']?>&nbsp;</td></tr>
 	<tr><th>かな</th><td><?=$hash['data']['customer_ruby']?>&nbsp;</td></tr>
+	<tr><th>性別</th><td><?=$hash['data']['customer_gender']?>&nbsp;</td></tr>
 	<tr><th>卒業期</th><td><?=$hash['data']['customer_graduate']?>&nbsp;</td></tr>
 	<tr><th>メールアドレス</th><td><?=$hash['data']['customer_email']?>&nbsp;</td></tr>
 	<tr><th>郵便番号</th><td><?=$hash['data']['customer_postcode']?>&nbsp;</td></tr>
@@ -42,7 +44,7 @@ if ($view->permitted($hash['category'], 'add')) {
 
 	<tr><th>出身中学</th><td><?=$hash['data']['customer_juniorhighschool']?>&nbsp;</td></tr>
 	<tr><th>部活動</th><td><?=$hash['data']['customer_club']?>&nbsp;</td></tr>
-	<tr><th>URL</th><td><?=$hash['data']['customer_url']?>&nbsp;</td></tr>
+	<tr><th>役割</th><td><?=$hash['data']['customer_position']?>&nbsp;</td></tr>
 	<?=$liquid->view($hash['item'], $hash['data'])?>
 	<tr><th>備考</th><td><?=nl2br($hash['data']['customer_comment'])?>&nbsp;</td></tr>
 	<tr><th>カテゴリ</th><td><?=$hash['folder'][$hash['data']['folder_id']]?>&nbsp;</td></tr>

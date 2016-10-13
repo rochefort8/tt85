@@ -7,8 +7,8 @@
 require_once('../application/loader.php');
 $view->script('postcode.js');
 $view->heading('顧客情報削除');
-if ($hash['data']['customer_parent'] > 0) {
-	$hash['data']['customer_juniorhighschool'] = sprintf('<a href="companyview.php?id=%d">%s</a>', $hash['data']['customer_parent'], $hash['data']['customer_juniorhighschool']);
+if ($hash['data']['customer_position'] > 0) {
+	$hash['data']['customer_juniorhighschool'] = sprintf('<a href="companyview.php?id=%d">%s</a>', $hash['data']['customer_position'], $hash['data']['customer_juniorhighschool']);
 }
 $liquid = new Liquid;
 ?>
@@ -26,8 +26,10 @@ $liquid = new Liquid;
 <form class="content" method="post" action="">
 	<?=$view->error($hash['error'], '下記の顧客情報を削除します。')?>
 	<table class="view" cellspacing="0">
+		<tr><th>ID</th><td><?=$hash['data']['customer_id']?>&nbsp;</td></tr>
 		<tr><th>名前</th><td><?=$hash['data']['customer_name']?>&nbsp;</td></tr>
 		<tr><th>かな</th><td><?=$hash['data']['customer_ruby']?>&nbsp;</td></tr>
+		<tr><th>性別</th><td><?=$hash['data']['customer_gender']?>&nbsp;</td></tr>
 		<tr><th>郵便番号</th><td><?=$hash['data']['customer_postcode']?>&nbsp;</td></tr>
 		<tr><th>住所</th><td><?=$hash['data']['customer_address']?>&nbsp;</td></tr>
 		<tr><th>住所（かな）</th><td><?=$hash['data']['customer_addressruby']?>&nbsp;</td></tr>
@@ -38,8 +40,7 @@ $liquid = new Liquid;
 		<tr><th>会社名</th><td><?=$hash['data']['customer_juniorhighschool']?><?=$hash['data']['customer_juniorhighschoolview']?>&nbsp;</td></tr>
 		<tr><th>会社名（かな）</th><td><?=$hash['data']['customer_club']?>&nbsp;</td></tr>
 		<tr><th>部署</th><td><?=$hash['data']['customer_department']?>&nbsp;</td></tr>
-		<tr><th>役職</th><td><?=$hash['data']['customer_position']?>&nbsp;</td></tr>
-		<tr><th>URL</th><td><?=$hash['data']['customer_url']?>&nbsp;</td></tr>
+		<tr><th>役割</th><td><?=$hash['data']['customer_position']?>&nbsp;</td></tr>
 		<?=$liquid->view($hash['item'], $hash['data'])?>
 		<tr><th>備考</th><td><?=nl2br($hash['data']['customer_comment'])?>&nbsp;</td></tr>
 		<tr><th>カテゴリ</th><td><?=$hash['folder'][$hash['data']['folder_id']]?>&nbsp;</td></tr>

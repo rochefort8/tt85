@@ -13,7 +13,7 @@ if (is_array($hash['list']) && count($hash['list']) > 0) {
 	foreach ($hash['list'] as $row) {
 ?>
 	<tr><td>
-		<span class="operator" onclick="Customer.set('<?=$row['id']?>', '<?=$row['customer_juniorhighschool']?>', '<?=$row['customer_juniorhighschool']?>', '<?=$row['customer_department']?>', '<?=$row['customer_url']?>')">
+		<span class="operator" onclick="Customer.set('<?=$row['id']?>', '<?=$row['customer_juniorhighschool']?>', '<?=$row['customer_juniorhighschool']?>', '<?=$row['customer_department']?>', '<?=$row['customer_id']?>')">
 		<?=$row['customer_juniorhighschool']?></span>&nbsp;
 	</td>
 	<td><?=$row['customer_postcode']?>&nbsp;</td>
