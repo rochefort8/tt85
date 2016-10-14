@@ -45,6 +45,8 @@ if ($view->authorize('administrator', 'manager')) {
 		<tr>
 		<th><?=$pagination->sortby('customer_id', 'ID')?></th>
 		<th><?=$pagination->sortby('customer_name', '名前')?></th>
+		<th><?=$pagination->sortby('customer_ruby', 'かな')?></th>
+		<th><?=$pagination->sortby('customer_gender', '性別')?></th>
 		<th><?=$pagination->sortby('customer_graduate', '卒業期')?></th>
 		<th><?=$pagination->sortby('customer_email', 'メールアドレス')?></th>
 		<th><?=$pagination->sortby('customer_postcode', '郵便番号')?></th>
@@ -52,6 +54,10 @@ if ($view->authorize('administrator', 'manager')) {
 		<th><?=$pagination->sortby('customer_phone', '電話番号')?></th>
 		<th><?=$pagination->sortby('customer_juniorhighschool', '出身中学')?></th>
 		<th><?=$pagination->sortby('customer_club', '部活動')?></th>
+		<th><?=$pagination->sortby('customer_role', '役割')?></th>
+		<th><?=$pagination->sortby('customer_couple', '夫婦')?></th>
+		<th><?=$pagination->sortby('customer_annualfee', '年会費')?></th>
+		<th><?=$pagination->sortby('customer_party', '懇親会')?></th>
 		<?=$liquid->listheader($hash['item'], $pagination)?></tr>
 <?php
 if (is_array($hash['list']) && count($hash['list']) > 0) {
@@ -60,6 +66,8 @@ if (is_array($hash['list']) && count($hash['list']) > 0) {
 		<tr>
 		<td><?=$row['customer_id']?>&nbsp;</td>
 		<td><a href="./view.php?id=<?=$row['id']?>"><?=$row['customer_name']?></a>&nbsp;</td>
+		<td><?=$row['customer_ruby']?>&nbsp;</td>
+		<td><?=$row['customer_gender']?>&nbsp;</td>
 		<td><?=$row['customer_graduate']?>&nbsp;</td>
 		<td><?=$row['customer_email']?>&nbsp;</td>
 		<td><?=$row['customer_postcode']?>&nbsp;</td>
@@ -67,6 +75,10 @@ if (is_array($hash['list']) && count($hash['list']) > 0) {
 		<td><?=$row['customer_phone']?>&nbsp;</td>
 		<td><?=$row['customer_juniorhighschool']?>&nbsp;</td>
 		<td><?=$row['customer_club']?>&nbsp;</td>
+		<td><?=$row['customer_role']?>&nbsp;</td>
+		<td><?=$row['customer_couple']?>&nbsp;</td>
+		<td><?=$row['customer_annualfee']?>&nbsp;</td>
+		<td><?=$row['customer_party']?>&nbsp;</td>
 		<?=$liquid->listcontent($hash['item'], $row)?></tr>
 <?php
 	}

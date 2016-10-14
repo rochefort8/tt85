@@ -27,7 +27,7 @@ function display_graduate_list($selected_graduate) {
 }
 
 function display_club_list($selected_item) {
-	 $club_array = array(
+	 $array = array(
 	 	 "ESS","お茶","カメラ","ギター","コーラス","サッカー","ソフトテニス","テニス",
 		  "バスケットボール","バトミントン","バレーボール","フォーク同好会","ブラスバンド",
 		  "ボート","ラグビー","ラジオ","映画研究会","演劇","演劇","応援","音楽","化学",
@@ -38,19 +38,19 @@ function display_club_list($selected_item) {
 		  );
 	 print '<select name="customer_club">' ;
 
-	 print_r('Ogihara') ;
-	 for ($n = 0;$n < count($club_array);$n++) {
+	 for ($n = 0;$n < count($array);$n++) {
+	     	 $item = $array[$n] ;
 	 	 $selected="" ;
-	 	 if ( $club_array[$n] == $selected_item ) {
+	 	 if ( $item == $selected_item ) {
 		    $selected = "selected" ;
 		 } 
-		 echo "<option value=\"${club_array[$n]}\" ${selected}>${club_array[$n]}</option>";
+		 echo "<option value=\"${item}\" ${selected}>${item}</option>";
 	 } 
 	 print '</select>';
 }
 
 function display_juniorhighschool_list($selected_item) {
-	 $school_array = array(
+	 $array = array(
 	      "芦屋中","鞍手南中","鞍手北中","引野中","永犬丸中","遠賀中","遠賀南中","岡垣中",
 	      "岡垣東中","沖田中","花尾中","宮竹中","弓削中","響南中","熊西中","穴生中","剣中",
 	      "古月中","向洋中","香月中","高見中","高須中","高塔中","黒崎中","桜蔭中","思永中",
@@ -61,13 +61,42 @@ function display_juniorhighschool_list($selected_item) {
 	      "槻田中","東筑中","洞北中","二島中","日新館中","博多女子中","八児中","板櫃中",
 	      "尾倉中","福教大付属小倉中","福教大付属中","本城中","明治学園中","木屋瀬中","その他") ;
 	 print '<select name="customer_juniorhighschool">' ;
-	 for ($n = 0;$n < count($school_array);$n++) {
+	 for ($n = 0;$n < count($array);$n++) {
+	     	 $item = $array[$n] ;
 	  	 $selected="" ;
-	 	 if ( $school_array[$n] == $selected_item ) {
+	 	 if ( $item == $selected_item ) {
 		    $selected = "selected" ;
 		 } 
-		 echo "<option value=\"${school_array[$n]}\" ${selected}>${school_array[$n]}</option>";
+		 echo "<option value=\"${item}\" ${selected}>${item}</option>";
 	 } 
 	 print '</select>';
+}
+
+function display_role($selected_item) {
+	 $array = array(
+	      "","会長","副会長","幹事長","役員","期別幹事"
+	      ) ;
+	 print '<select name="customer_role">' ;
+	 for ($n = 0;$n < count($array);$n++) {
+	     	 $item = $array[$n] ;
+	  	 $selected="" ;
+	 	 if ( $item == $selected_item ) {
+		    $selected = "selected" ;
+		 } 
+		 echo "<option value=\"${item}\" ${selected}>${item}</option>";
+	 } 
+	 print '</select>';
+}
+
+function display_gender_list($selected_item) {
+	 $array = array("男","女") ;
+	 for ($n = 0;$n < count($array);$n++) {
+	     	 $item = $array[$n] ;
+	  	 $selected="" ;
+	 	 if ( $item == $selected_item ) {
+		    $selected = "checked" ;
+		 } 
+	 	 echo "<input type=\"radio\" name=\"customer_gender\" value=\"${item}\" ${selected}>${item}" ;
+	 }
 }
 ?>

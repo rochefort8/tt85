@@ -104,9 +104,9 @@ Customer.set = function (id, company, companyruby, department, url) {
 		var element = document.forms['customer'].elements;
 		element['customer_juniorhighschool'].value = company;
 		element['customer_juniorhighschool'].value = companyruby;
-		element['customer_department'].value = department;
+		element['customer_couple'].value = department;
 		element['customer_id'].value = url;
-		document.getElementById('belong').innerHTML = '<input type="checkbox" name="customer_position" id="customer_position" value="' + id + '" checked="checked" /><label for="customer_position">リンク</label>';
+		document.getElementById('belong').innerHTML = '<input type="checkbox" name="customer_role" id="customer_role" value="' + id + '" checked="checked" /><label for="customer_role">リンク</label>';
 		$('#companylist').remove();
 	} catch(e) {
 		alert(e.message);

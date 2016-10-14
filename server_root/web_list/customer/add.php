@@ -5,14 +5,14 @@
  * 文字コード UTF-8
  */
 require_once('../application/loader.php');
-require_once('./graduate_list.php');
+require_once('./common_view.php');
 
 $view->script('postcode.js');
 $view->heading('顧客追加');
 $hash['data']['folder_id'] = $view->initialize($hash['data']['folder_id'], $_GET['folder']);
 $hash['folder'] = array('&nbsp;') + $hash['folder'];
-if ($hash['data']['customer_position'] > 0) {
-	$belong = $helper->checkbox('customer_position', intval($hash['data']['customer_position']), intval($hash['data']['customer_position']), 'customer_position', 'リンク');
+if ($hash['data']['customer_role'] > 0) {
+	$belong = $helper->checkbox('customer_role', intval($hash['data']['customer_role']), intval($hash['data']['customer_role']), 'customer_role', 'リンク');
 }
 $liquid = new Liquid;
 ?>

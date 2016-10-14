@@ -60,7 +60,7 @@ CREATE TABLE `customer_customer` (
   `customer_ruby` text,
   `customer_juniorhighschool` text,
   `customer_club` text,
-  `customer_department` text,
+  `customer_couple` text,
   `customer_gender` text,
   `customer_postcode` text,
   `customer_address` text,
@@ -72,9 +72,9 @@ CREATE TABLE `customer_customer` (
   `customer_id` text,
   `customer_comment` text,
   `customer_position` int(11) DEFAULT NULL,
-  `customer_item00` text,
-  `customer_item01` text,
-  `customer_item02` text,
+  `customer_annualfee` text,
+  `customer_party` text,
+  `customer_role` text,
   `customer_item03` text,
   `customer_item04` text,
   `customer_item05` text,
@@ -98,7 +98,7 @@ CREATE TABLE `customer_customer` (
 
 LOCK TABLES `customer_customer` WRITE;
 /*!40000 ALTER TABLE `customer_customer` DISABLE KEYS */;
-INSERT INTO `customer_customer` VALUES (4,0,0,'è»åŽŸã€€å°šè²´','ãŠãŽã¯ã‚‰ãªãŠã','æœ¨å±‹ç€¬ä¸­','å¹å¥æ¥½','','','','','','','85','','','','',0,'','','','','','','','','','','ogihara','ogihara','2016-10-09 12:06:28','2016-10-09 12:07:22'),(5,0,0,'è»åŽŸã€€å¯›ç´€','ã‚ªã‚®ãƒãƒ©ã²ã‚ã','æ²–ç”°ä¸­','ãƒ•ã‚©ãƒ¼ã‚¯åŒå¥½ä¼š','','','','','','','102','','','','',0,'','','','','','','','','','','ogihara',NULL,'2016-10-09 12:08:02',NULL);
+INSERT INTO `customer_customer` VALUES (4,0,0,'è»åŽŸã€€å°šè²´','ãŠãŽã¯ã‚‰ãªãŠã','æœ¨å±‹ç€¬ä¸­','å¹å¥æ¥½','','','276-0022','åƒè‘‰çœŒå…«åƒä»£å¸‚ä¸Šé«˜é‡Ž','ã¡ã°ã‘ã‚“ã‚„ã¡ã‚ˆã—ã‹ã¿ã“ã†ã‚„','9065260057','85','+819065260057','hoegaarden1917@gmail.com','085020','',0,'2014b,2015a,2016a','2014c,2015c,2016c','å½¹å“¡','','','','','','','','ogihara','ogihara','2016-10-09 12:06:28','2016-10-14 08:07:34'),(5,0,0,'è»åŽŸã€€å¯›ç´€','ã‚ªã‚®ãƒãƒ©ã²ã‚ã','æ²–ç”°ä¸­','ãƒ•ã‚©ãƒ¼ã‚¯åŒå¥½ä¼š','AAAAAAA','','','','','','102','','','102003','',0,'2015a','2013b','','','','','','','','','ogihara','ogihara','2016-10-09 12:08:02','2016-10-14 08:08:12');
 /*!40000 ALTER TABLE `customer_customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -328,4 +328,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-09 12:08:30
+-- Dump completed on 2016-10-14  8:08:22

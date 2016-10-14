@@ -25,7 +25,7 @@ $liquid = new Liquid;
 	<table class="view" cellspacing="0">
 		<tr><th>会社名</th><td><?=$hash['data']['customer_juniorhighschool']?>&nbsp;</td></tr>
 		<tr><th>会社名（かな）</th><td><?=$hash['data']['customer_juniorhighschool']?>&nbsp;</td></tr>
-		<tr><th>部署</th><td><?=$hash['data']['customer_department']?>&nbsp;</td></tr>
+		<tr><th>部署</th><td><?=$hash['data']['customer_couple']?>&nbsp;</td></tr>
 		<tr><th>担当者</th><td><?=$hash['data']['customer_name']?></td></tr>
 		<tr><th>役職</th><td><?=$hash['data']['customer_gender']?></td></tr>
 		<tr><th>郵便番号</th><td><?=$hash['data']['customer_postcode']?>&nbsp;</td></tr>

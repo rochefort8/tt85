@@ -131,7 +131,7 @@ class History extends ApplicationModel {
 			$folder = $hash['parent']['folder_id'];
 			if ($hash['parent']['customer_type'] == 1) {
 				$array[] = array('会社名', $hash['parent']['customer_juniorhighschool']);
-				$array[] = array('部署', $hash['parent']['customer_department']);
+				$array[] = array('部署', $hash['parent']['customer_couple']);
 				$array[] = array('担当者', $hash['parent']['customer_name']);
 			} else {
 				$array[] = array('名前', $hash['parent']['customer_name']);

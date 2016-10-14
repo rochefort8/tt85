@@ -25,15 +25,20 @@ class Customer extends ApplicationModel {
 
 		'customer_juniorhighschool'=>array('出身中学', 'length:100'),
 		'customer_club'=>array('部活動', 'length:100'),
-		'customer_department'=>array('部署', 'length:1000'),
+		'customer_couple'=>array('夫婦', 'length:1000'),
 		'customer_gender'=>array('職', 'length:20'),
 
 		'customer_mobile'=>array('携帯電話', 'length:20'),
 		'customer_email'=>array('メールアドレス', 'length:1000'),
 
+		'customer_annualfee'=>array('年会費', 'length:100'),
+		'customer_role'=>array('ID','length:100'),
+		'customer_party'=>array('懇親会','length:100'),
+
 		'customer_comment'=>array('備考', 'length:10000', 'line:100'),
 		'customer_position'=>array('会社情報ID', 'numeric', 'except'=>array('search')));
-		for ($i = 0; $i < 10; $i++) {
+
+		for ($i = 3; $i < 10; $i++) {
 			$this->schema[sprintf('customer_item%02d', $i)] = array();
 		}
 		if ($_POST['customer_type'] == 1) {
@@ -214,7 +219,7 @@ class Customer extends ApplicationModel {
 		if ($_GET['type'] == 1) {
 			$field = array('customer_juniorhighschool'=>'会社名',
 			'customer_juniorhighschool'=>'会社名(かな)',
-			'customer_department'=>'部署',
+			'customer_couple'=>'部署',
 			'customer_name'=>'担当者',
 			'customer_gender'=>'役職',
 			'customer_postcode'=>'郵便番号',
@@ -236,7 +241,7 @@ class Customer extends ApplicationModel {
 			'customer_email'=>'メールアドレス',
 			'customer_juniorhighschool'=>'会社名',
 			'customer_juniorhighschool'=>'会社名(かな)',
-			'customer_department'=>'部署',
+			'customer_couple'=>'部署',
 			'customer_gender'=>'役職',
 			'customer_gender'=>'性別',
 			'customer_id'=>'URL');
