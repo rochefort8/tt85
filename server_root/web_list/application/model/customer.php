@@ -55,6 +55,7 @@ class Customer extends ApplicationModel {
 
 		$hash = $this->permitCategory('customer', $_GET['folder']);
 
+/*
 		$key = $_REQUEST['key'];
 		if ( $key == 'graduate' ) {
 		   $array = array('customer_graduate') ;
@@ -65,10 +66,13 @@ class Customer extends ApplicationModel {
 		} else {
 		   $array = array() ;
 		}
-		
+*/
+
 		$this->where[] = $this->folderWhere($hash['folder']);
 		$this->where[] = "(customer_type = ".intval($type).")";
-		$hash += $this->findLimit('id', 1,$array) ;
+//		$hash += $this->findLimit('id', 1,$array) ;
+		$hash += $this->findLimit('id', 1) ;
+
 		if ($_GET['folder'] != 'all') {
 			$hash['item'] = $this->item->findItem('customer', $_GET['folder']);
 		}

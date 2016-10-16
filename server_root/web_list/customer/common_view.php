@@ -1,6 +1,13 @@
 <?php
-function display_graduate_list($selected_graduate) {
-	 print '<select name="customer_graduate">' ;
+function display_graduate_list($selected_graduate,$name = 'customer_graduate') {
+	 $string = "<select name=\"${name}\">" ;
+	 $string .= display_graduate_options($selected_graduate);
+	 $string .= '</select>';
+	 return $string ;
+}
+
+function display_graduate_options($selected_graduate) {
+	 $string = "<option value=\"\"></option>";
 
 	 $year = 1950;
 	 $graduate = $year - 1902 ;
@@ -11,7 +18,7 @@ function display_graduate_list($selected_graduate) {
 	     	 if ( $graduate == $selected_graduate ) {
 		    $selected = "selected" ;
 		 } 
-	  	 echo "<option value=\"${graduate}\" ${selected}>${graduate}期(${year}年/昭和${gengo}年卒業)</option>";
+	  	 $string .= "<option value=\"${graduate}\" ${selected}>${graduate}期(${year}年/昭和${gengo}年卒業)</option>";
 	 }
 	 $year = 1989 ;
 	 $gengo = $year - 1988 ;
@@ -21,13 +28,21 @@ function display_graduate_list($selected_graduate) {
 	     	 if ( $graduate == $selected_graduate ) {
 		    $selected = "selected" ;
 		 } 
-	  	 echo "<option value=\"${graduate}\" ${selected}>${graduate}期(${year}年/ 平成${gengo}年卒業)</option>";
+	  	 $string .= "<option value=\"${graduate}\" ${selected}>${graduate}期(${year}年/ 平成${gengo}年卒業)</option>";
 	 }
-	 print '</select>';
+	 return $string ;
 }
 
-function display_club_list($selected_item) {
+function display_club_list($selected_item,$name = 'customer_club') {
+	 $string = "<select name=\"${name}\">" ;
+	 $string .= display_club_options($selected_item);
+	 $string .= '</select>';
+	 return $string ;
+}
+
+function display_club_options($selected_item) {
 	 $array = array(
+	 	 "",
 	 	 "ESS","お茶","カメラ","ギター","コーラス","サッカー","ソフトテニス","テニス",
 		  "バスケットボール","バトミントン","バレーボール","フォーク同好会","ブラスバンド",
 		  "ボート","ラグビー","ラジオ","映画研究会","演劇","演劇","応援","音楽","化学",
@@ -36,21 +51,28 @@ function display_club_list($selected_item) {
 		  "地学","茶道","軟式テニス","美術","文芸","弁論","放送","野球","理化部化学班",
 		  "理化部地学班","陸上","その他"
 		  );
-	 print '<select name="customer_club">' ;
-
+	 $string = "";
 	 for ($n = 0;$n < count($array);$n++) {
 	     	 $item = $array[$n] ;
 	 	 $selected="" ;
 	 	 if ( $item == $selected_item ) {
 		    $selected = "selected" ;
 		 } 
-		 echo "<option value=\"${item}\" ${selected}>${item}</option>";
+		 $string .= "<option value=\"${item}\" ${selected}>${item}</option>";
 	 } 
-	 print '</select>';
+	 return $string ;
 }
 
-function display_juniorhighschool_list($selected_item) {
+function display_juniorhighschool_list($selected_item,$name = 'customer_juniorhighschool') {
+	 $string = "<select name=\"${name}\">" ;
+	 $string .= display_juniorhighschool_options($selected_item) ;
+	 $string .= '</select>';
+	 return $string ;
+}
+
+function display_juniorhighschool_options($selected_item) {
 	 $array = array(
+	      "",
 	      "芦屋中","鞍手南中","鞍手北中","引野中","永犬丸中","遠賀中","遠賀南中","岡垣中",
 	      "岡垣東中","沖田中","花尾中","宮竹中","弓削中","響南中","熊西中","穴生中","剣中",
 	      "古月中","向洋中","香月中","高見中","高須中","高塔中","黒崎中","桜蔭中","思永中",
@@ -60,16 +82,17 @@ function display_juniorhighschool_list($selected_item) {
 	      "大之浦中","中央中","中間中","中間東中","中間南中","直方一中","直方三中","直方二中",
 	      "槻田中","東筑中","洞北中","二島中","日新館中","博多女子中","八児中","板櫃中",
 	      "尾倉中","福教大付属小倉中","福教大付属中","本城中","明治学園中","木屋瀬中","その他") ;
-	 print '<select name="customer_juniorhighschool">' ;
+
+	 $string = "" ;
 	 for ($n = 0;$n < count($array);$n++) {
 	     	 $item = $array[$n] ;
 	  	 $selected="" ;
 	 	 if ( $item == $selected_item ) {
 		    $selected = "selected" ;
 		 } 
-		 echo "<option value=\"${item}\" ${selected}>${item}</option>";
+		 $string .= "<option value=\"${item}\" ${selected}>${item}</option>";
 	 } 
-	 print '</select>';
+	 return $string ;
 }
 
 function display_role($selected_item) {

@@ -31,6 +31,7 @@ class Model extends Connection {
 	function findLimit($sort = null, $desc = 0, $searchfield = null) {
 		
 		$field = $this->schematize();
+
 		if ($_REQUEST['page'] <= 0) {
 			$page = 1;
 		} else {
@@ -53,9 +54,32 @@ class Model extends Connection {
 		}
 		$array = $this->where;
 		$searchWhere = $this->searchWhere($searchfield);
+
 		if (strlen($searchWhere) > 0) {
 			$array[] = $searchWhere;
 		}
+
+		/* Name */
+		$searchWhere = $this->searchWhereEx(array('customer_name','customer_ruby'),'customer_name') ;
+		if (strlen($searchWhere) > 0) {
+		   $array[] = $searchWhere;
+		}
+		/* Graduate */
+		$searchWhere = $this->searchWhereEx(array('customer_graduate'),'customer_graduate') ;
+		if (strlen($searchWhere) > 0) {
+		   $array[] = $searchWhere;
+		}
+		/* Club */
+		$searchWhere = $this->searchWhereEx(array('customer_club'),'customer_club') ;
+		if (strlen($searchWhere) > 0) {
+		   $array[] = $searchWhere;
+		}
+		/* Junior High School */
+		$searchWhere = $this->searchWhereEx(array('customer_juniorhighschool'),'customer_juniorhighschool') ;
+		if (strlen($searchWhere) > 0) {
+		   $array[] = $searchWhere;
+		}
+
 		if (is_array($array) && count($array) > 0) {
 			$where = "WHERE ".implode(" AND ", $array);
 		}
@@ -65,6 +89,9 @@ class Model extends Connection {
 			$string = '*';
 		}
 		$query = sprintf("SELECT %s FROM %s %s %s", $string, $this->table, $where, $order);
+
+		error_log('OGI---'.$query) ;
+
 		$result['list'] = $this->fetchLimit($query, $offset, $limit);
 		$result['count'] = $this->fetchCount($this->table, $where, 'id');
 		return $result;
@@ -72,11 +99,11 @@ class Model extends Connection {
 	}
 	
 	function searchWhere($searchfield = null) {
-		
 		if (isset($_REQUEST['search']) && strlen($_REQUEST['search']) > 0) {
 			if (!$searchfield) {
 				$searchfield = $this->schematize('search');
 			}
+
 			$keyword = explode(' ', str_replace('　', ' ', $_REQUEST['search']));
 			if (is_array($keyword) && count($keyword) > 0 && is_array($searchfield) && count($searchfield) > 0) {
 				foreach ($keyword as $value) {
@@ -93,7 +120,36 @@ class Model extends Connection {
 		}
 	
 	}
+
+	function searchWhereEx($searchfield = null,$key = "search") {
+		if (isset($_REQUEST[$key]) && strlen($_REQUEST[$key]) > 0) {
+		   error_log('OGIllll'.$_REQUEST[$key]) ;
+			   error_log('OGIssss'.$searchfield) ;
+			if (!$searchfield) {
+				$searchfield = $this->schematize($key);
+			}
+			$keyword = explode(' ', str_replace('　', ' ', $_REQUEST[$key]));
+			   error_log('OGIssss'.$searchfield) ;
+
+
+			if (is_array($keyword) && count($keyword) > 0 && is_array($searchfield) && count($searchfield) > 0) {
+
+				foreach ($keyword as $value) {
+			   error_log('OGIkkk'.$value) ;
+					$row = array();
+					foreach ($searchfield as $key) {
+						$row[] = sprintf("(%s LIKE '%%%s%%')", $key, $this->quote($value));
+					}
+					$array[] = "(".implode(" OR ", $row).")";
+				}
+			}
+		}
+		if (is_array($array) && count($array) > 0) {
+			return implode(" AND ", $array);
+		}
 	
+	}
+
 	function findAll($sort = null, $desc = 0, $searchfield = null) {
 		
 		$field = $this->schematize();
@@ -108,6 +164,8 @@ class Model extends Connection {
 		}
 		$array = $this->where;
 		$searchWhere = $this->searchWhere($searchfield);
+
+		error_log('OGI:,,'.$searchWhere) ;
 		if (strlen($searchWhere) > 0) {
 			$array[] = $searchWhere;
 		}

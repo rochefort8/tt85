@@ -5,6 +5,8 @@
  * 文字コード UTF-8
  */
 
+require_once(DIR_VIEW.'../../customer/common_view.php');
+
 class ApplicationView extends View {
 
 	var $group = array();
@@ -164,17 +166,24 @@ class ApplicationView extends View {
 	}
 	
 	function searchform($parameter = null) {
-		
 		$string = '<form method="post" class="searchform" action="';
 		$string .= $_SERVER['SCRIPT_NAME'].$this->parameter($parameter);
-		$string .= '"><input type="text" name="search" id="search" class="inputsearch" value="';
-		$string .= $this->escape($_REQUEST['search']);
+		$string .= '"><input type="text" name="customer_name" id="search" class="inputsearch" value="';
 		$string .= '" />';
-		$string .= '<input type="radio" name="key" value="all" checked="checked" />全文';
-		$string .= '<input type="radio" name="key" value="graduate" />卒業期' ; 
-		$string .= '<input type="radio" name="key" value="club" />部活動';
-		$string .= '<input type="radio" name="key" value="juniorhighschool" />出身中学';
-		$string .= '<input type="submit" value="検索" /></form>';
+
+		$string .= '<select name="customer_juniorhighschool" onChange="this.form.submit()">' ;
+		$string .= display_juniorhighschool_options('85') ;
+		$string .= '</select>' ;
+
+		$string .= '<select name="customer_club" onChange="this.form.submit()">' ;
+		$string .= display_club_options('A') ;
+		$string .= '</select>' ;
+
+		$string .= '<select name="customer_graduate" onChange="this.form.submit()">' ;
+		$string .= display_graduate_options('85') ;
+		$string .= '</select>' ;
+
+		$string .= '<input type="submit" value="検索--" /></form>';
 		return $string;
 		
 	}
