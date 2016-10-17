@@ -15,8 +15,10 @@ class Customer extends ApplicationModel {
 		'folder_id'=>array('カテゴリ', 'notnull', 'numeric', 'except'=>array('search')),
 		'customer_type'=>array('分類', 'notnull', 'numeric', 'except'=>array('search', 'update')),
 		'customer_id'=>array('ID', 'length:1000'),
-		'customer_lastname'=>array('名前', 'length:100'),
+		'customer_lastname'=>array('姓', 'length:100'),
+		'customer_firstname'=>array('名', 'length:100'),
 		'customer_lastname_ruby'=>array('かな', 'length:100'),
+		'customer_firstname_ruby'=>array('かな', 'length:100'),
 		'customer_graduate'=>array('卒業期', 'length:20'),
 		'customer_postcode'=>array('郵便番号', 'length:8'),
 		'customer_address'=>array('住所', 'length:1000'),
@@ -38,7 +40,7 @@ class Customer extends ApplicationModel {
 		'customer_comment'=>array('備考', 'length:10000', 'line:100'),
 		'customer_position'=>array('会社情報ID', 'numeric', 'except'=>array('search')));
 
-		for ($i = 3; $i < 10; $i++) {
+		for ($i = 5; $i < 10; $i++) {
 			$this->schema[sprintf('customer_item%02d', $i)] = array();
 		}
 		if ($_POST['customer_type'] == 1) {

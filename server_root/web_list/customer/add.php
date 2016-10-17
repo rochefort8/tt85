@@ -32,7 +32,9 @@ $liquid = new Liquid;
 	<?=$view->error($hash['error'])?>
 	<table class="form" cellspacing="0">
 		<tr><th>名前<span class="necessary">(必須)</span></th><td><input type="text" name="customer_lastname" class="inputvalue" value="<?=$hash['data']['customer_lastname']?>" /></td></tr>
+		<tr><th>名前<span class="necessary">(必須)</span></th><td><input type="text" name="customer_firstname" class="inputvalue" value="<?=$hash['data']['customer_firstname']?>" /></td></tr>
 		<tr><th>かな</th><td><input type="text" name="customer_lastname_ruby" class="inputvalue" value="<?=$hash['data']['customer_lastname_ruby']?>" /></td></tr>
+		<tr><th>かな</th><td><input type="text" name="customer_firstname_ruby" class="inputvalue" value="<?=$hash['data']['customer_lastname_ruby']?>" /></td></tr>
 		<tr><th>卒業期</th><td><?php echo display_graduate_list('85') ; ?></td></tr>
 		<tr><th>メールアドレス</th><td><input type="text" name="customer_email" class="inputvalue" value="<?=$hash['data']['customer_email']?>" /></td></tr>
 		<tr><th>郵便番号</th><td>

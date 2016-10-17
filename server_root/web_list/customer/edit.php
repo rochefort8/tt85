@@ -33,8 +33,10 @@ $liquid = new Liquid;
 	<table class="form" cellspacing="0">
 		<tr><th>ID</th><td><?=$hash['data']['customer_id']?></td></tr>
 
-		<tr><th>名前<span class="necessary">(必須)</span></th><td><input type="text" name="customer_lastname" class="inputvalue" value="<?=$hash['data']['customer_lastname']?>" /></td></tr>
+		<tr><th>姓<span class="necessary">(必須)</span></th><td><input type="text" name="customer_lastname" class="inputvalue" value="<?=$hash['data']['customer_lastname']?>" /></td></tr>
+		<tr><th>名<span class="necessary">(必須)</span></th><td><input type="text" name="customer_firstname" class="inputvalue" value="<?=$hash['data']['customer_firstname']?>" /></td></tr>
 		<tr><th>かな</th><td><input type="text" name="customer_lastname_ruby" class="inputvalue" value="<?=$hash['data']['customer_lastname_ruby']?>" /></td></tr>
+		<tr><th>かな</th><td><input type="text" name="customer_firstname_ruby" class="inputvalue" value="<?=$hash['data']['customer_firstname_ruby']?>" /></td></tr>
 
 		<tr><th>性別</th><td><?php echo display_gender_list($hash['data']['customer_gender']); ?></td></tr>
 
