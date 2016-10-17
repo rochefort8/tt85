@@ -183,8 +183,15 @@ class ApplicationView extends View {
 		$string .= display_club_options() ;
 		$string .= '</select>' ;
 		$string .= '<input type="text" name="search" id="search" placeholder="自由検索" class="inputsearch" value="" />';
+<!----
+		$checked="" ;
+		if (isset($_REQUEST['showallfield']) && strlen($_REQUEST['showallfield']) > 0) {
+		   $checked="checked" ;
+		   error_log('OGIkkk'.$_REQUEST['showallfield']) ;
+  		}
+---->
 		$string .= '<input type="submit" value="検索--" /></form>';
-		$string .= '</form>';
+
 		return $string;
 		
 	}
