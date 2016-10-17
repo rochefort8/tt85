@@ -44,10 +44,10 @@ if ($view->authorize('administrator', 'manager')) {
 	<table class="list" cellspacing="0">
 		<tr>
 		<th><?=$pagination->sortby('customer_id', 'ID')?></th>
+		<th><?=$pagination->sortby('customer_graduate', '卒業期')?></th>
 		<th><?=$pagination->sortby('customer_name', '名前')?></th>
 		<th><?=$pagination->sortby('customer_ruby', 'かな')?></th>
 		<th><?=$pagination->sortby('customer_gender', '性別')?></th>
-		<th><?=$pagination->sortby('customer_graduate', '卒業期')?></th>
 		<th><?=$pagination->sortby('customer_email', 'メールアドレス')?></th>
 		<th><?=$pagination->sortby('customer_postcode', '郵便番号')?></th>
 		<th><?=$pagination->sortby('customer_address', '住所')?></th>
@@ -65,10 +65,10 @@ if (is_array($hash['list']) && count($hash['list']) > 0) {
 ?>
 		<tr>
 		<td><?=$row['customer_id']?>&nbsp;</td>
+		<td><?=$row['customer_graduate']?>&nbsp;</td>
 		<td><a href="./view.php?id=<?=$row['id']?>"><?=$row['customer_name']?></a>&nbsp;</td>
 		<td><?=$row['customer_ruby']?>&nbsp;</td>
 		<td><?=$row['customer_gender']?>&nbsp;</td>
-		<td><?=$row['customer_graduate']?>&nbsp;</td>
 		<td><?=$row['customer_email']?>&nbsp;</td>
 		<td><?=$row['customer_postcode']?>&nbsp;</td>
 		<td><?=$row['customer_address']?>&nbsp;</td>

@@ -173,7 +173,7 @@ class ApplicationView extends View {
 		$string .= '<select name="customer_graduate" onChange="this.form.submit()">' ;
 		$string .= display_graduate_options() ;
 		$string .= '</select>' ;
-		$string .= '<input type="text" name="customer_name" id="search" class="inputsearch" value="" />';
+		$string .= '<input type="text" name="customer_name" placeholder="お名前(漢字、姓名、ふりがないずれも指定可" id="search" class="inputsearch" value="" />';
 
 		$string .= '<select name="customer_juniorhighschool" onChange="this.form.submit()">' ;
 		$string .= display_juniorhighschool_options() ;
@@ -182,7 +182,7 @@ class ApplicationView extends View {
 		$string .= '<select name="customer_club" onChange="this.form.submit()">' ;
 		$string .= display_club_options() ;
 		$string .= '</select>' ;
-		$string .= '<input type="text" name="search" id="search" class="inputsearch" value="" />';
+		$string .= '<input type="text" name="search" id="search" placeholder="自由検索" class="inputsearch" value="" />';
 		$string .= '<input type="submit" value="検索--" /></form>';
 		$string .= '</form>';
 		return $string;

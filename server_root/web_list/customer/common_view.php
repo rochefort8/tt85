@@ -14,7 +14,7 @@ function display_graduate_options($selected_item) {
 	    $selected_item = $_REQUEST[$key] ;
 	 }
 
-	 $string = "<option value=\"\"></option>";
+	 $string = "<option value=\"\" disabled selected style=\"display:none;\">卒業期</option>" ;
 
 	 $year = 1950;
 	 $graduate = $year - 1902 ;
@@ -49,7 +49,6 @@ function display_club_list($selected_item,$name = 'customer_club') {
 
 function display_club_options($selected_item) {
 	 $array = array(
-	 	 "",
 	 	 "ESS","お茶","カメラ","ギター","コーラス","サッカー","ソフトテニス","テニス",
 		  "バスケットボール","バトミントン","バレーボール","フォーク同好会","ブラスバンド",
 		  "ボート","ラグビー","ラジオ","映画研究会","演劇","演劇","応援","音楽","化学",
@@ -65,7 +64,8 @@ function display_club_options($selected_item) {
 	    $selected_item = $_REQUEST[$key] ;
 	 }
 
-	 $string = "";
+	 $string = "<option value=\"\" disabled selected style=\"display:none;\">部活動</option>" ;
+
 	 for ($n = 0;$n < count($array);$n++) {
 	     	 $item = $array[$n] ;
 	 	 $selected="" ;
@@ -86,7 +86,6 @@ function display_juniorhighschool_list($selected_item,$name = 'customer_juniorhi
 
 function display_juniorhighschool_options($selected_item) {
 	 $array = array(
-	      "",
 	      "芦屋中","鞍手南中","鞍手北中","引野中","永犬丸中","遠賀中","遠賀南中","岡垣中",
 	      "岡垣東中","沖田中","花尾中","宮竹中","弓削中","響南中","熊西中","穴生中","剣中",
 	      "古月中","向洋中","香月中","高見中","高須中","高塔中","黒崎中","桜蔭中","思永中",
@@ -103,7 +102,8 @@ function display_juniorhighschool_options($selected_item) {
 	    $selected_item = $_REQUEST[$key] ;
 	 }
 
-	 $string = "" ;
+	 $string = "<option value=\"\" disabled selected style=\"display:none;\">出身中学</option>" ;
+
 	 for ($n = 0;$n < count($array);$n++) {
 	     	 $item = $array[$n] ;
 	  	 $selected="" ;
