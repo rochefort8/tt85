@@ -31,7 +31,7 @@ if ($view->permitted($hash['category'], 'add')) {
 	<tr><th>会社名</th><td><?=$hash['data']['customer_juniorhighschool']?>&nbsp;</td></tr>
 	<tr><th>会社名（かな）</th><td><?=$hash['data']['customer_juniorhighschool']?>&nbsp;</td></tr>
 	<tr><th>部署</th><td><?=$hash['data']['customer_couple']?>&nbsp;</td></tr>
-	<tr><th>担当者</th><td><?=$hash['data']['customer_name']?></td></tr>
+	<tr><th>担当者</th><td><?=$hash['data']['customer_lastname']?></td></tr>
 	<tr><th>役職</th><td><?=$hash['data']['customer_gender']?></td></tr>
 	<tr><th>郵便番号</th><td><?=$hash['data']['customer_postcode']?>&nbsp;</td></tr>
 	<tr><th>住所</th><td><?=$hash['data']['customer_address']?>&nbsp;</td></tr>

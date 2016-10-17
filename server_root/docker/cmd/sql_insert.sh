@@ -5,8 +5,8 @@
 folder_id=""
 customer_type=""
 customer_id="123"
-customer_name="Yuji"
-customer_ruby="AAA"
+customer_lastname="Yuji"
+customer_lastname_ruby="AAA"
 customer_juniorhighschool=""
 customer_club=""
 customer_couple=""
@@ -28,8 +28,8 @@ cat $1 | while read l
 do
     customer_graduate=$(echo $l|cut -d, -f1)
     customer_id=$(echo $l|cut -d, -f3)
-    customer_name=$(echo $l|cut -d, -f4)
-    customer_ruby=$(echo $l|cut -d, -f5)
+    customer_lastname=$(echo $l|cut -d, -f4)
+    customer_lastname_ruby=$(echo $l|cut -d, -f5)
     customer_gender=$(echo $l|cut -d, -f6)
     customer_postcode=$(echo $l|cut -d, -f7)
     customer_address=$(echo $l|cut -d, -f8-11)
@@ -44,9 +44,9 @@ do
     customer_annualfee=""
     customer_comment=$(echo $l|cut -d, -f22)
 
-docker exec tt-server mysql -uroot db -e "INSERT INTO customer_customer ( folder_id,customer_type,customer_id,customer_name,customer_ruby,customer_gender,customer_graduate,customer_email,customer_phone,customer_mobile,customer_postcode,customer_address,customer_addressruby,customer_juniorhighschool,customer_club,customer_couple,customer_role,customer_annualfee,customer_party,customer_comment) VALUES ('$folder_id','$customer_type','$customer_id','$customer_name','$customer_ruby','$customer_gender','$customer_graduate','$customer_email','$customer_phone','$customer_mobile','$customer_postcode','$customer_address','$customer_addressruby','$customer_juniorhighschool','$customer_club','$customer_couple','$customer_role','$customer_annualfee','$customer_party','$customer_comment')" 
+docker exec tt-server mysql -uroot db -e "INSERT INTO customer_customer ( folder_id,customer_type,customer_id,customer_lastname,customer_lastname_ruby,customer_gender,customer_graduate,customer_email,customer_phone,customer_mobile,customer_postcode,customer_address,customer_addressruby,customer_juniorhighschool,customer_club,customer_couple,customer_role,customer_annualfee,customer_party,customer_comment) VALUES ('$folder_id','$customer_type','$customer_id','$customer_lastname','$customer_lastname_ruby','$customer_gender','$customer_graduate','$customer_email','$customer_phone','$customer_mobile','$customer_postcode','$customer_address','$customer_addressruby','$customer_juniorhighschool','$customer_club','$customer_couple','$customer_role','$customer_annualfee','$customer_party','$customer_comment')" 
 
-echo $customer_id : $customer_name
+echo $customer_id : $customer_lastname
 done
 
 

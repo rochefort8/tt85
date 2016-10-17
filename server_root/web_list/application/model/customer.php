@@ -15,8 +15,8 @@ class Customer extends ApplicationModel {
 		'folder_id'=>array('カテゴリ', 'notnull', 'numeric', 'except'=>array('search')),
 		'customer_type'=>array('分類', 'notnull', 'numeric', 'except'=>array('search', 'update')),
 		'customer_id'=>array('ID', 'length:1000'),
-		'customer_name'=>array('名前', 'length:100'),
-		'customer_ruby'=>array('かな', 'length:100'),
+		'customer_lastname'=>array('名前', 'length:100'),
+		'customer_lastname_ruby'=>array('かな', 'length:100'),
 		'customer_graduate'=>array('卒業期', 'length:20'),
 		'customer_postcode'=>array('郵便番号', 'length:8'),
 		'customer_address'=>array('住所', 'length:1000'),
@@ -44,7 +44,7 @@ class Customer extends ApplicationModel {
 		if ($_POST['customer_type'] == 1) {
 			$this->schema['customer_juniorhighschool'][] = 'notnull';
 		} else {
-			$this->schema['customer_name'][] = 'notnull';
+			$this->schema['customer_lastname'][] = 'notnull';
 		}
 		$this->connect();
 		$this->item = new Item($this->handler);
@@ -119,9 +119,9 @@ class Customer extends ApplicationModel {
 				if ($hash['data']['customer_type'] == 1) {
 					$string = $this->post['customer_juniorhighschool'];
 				} else {
-					$string = $this->post['customer_name'];
+					$string = $this->post['customer_lastname'];
 				}
-				$query = sprintf("UPDATE %s SET folder_id = %d, customer_name = '%s' WHERE customer_id = %d", DB_PREFIX.'history', intval($_POST['folder_id']), $this->quote($string), intval($_POST['id']));
+				$query = sprintf("UPDATE %s SET folder_id = %d, customer_lastname = '%s' WHERE customer_id = %d", DB_PREFIX.'history', intval($_POST['folder_id']), $this->quote($string), intval($_POST['id']));
 				$this->response = $this->query($query);
 			}
 			$this->redirect($redirect.$this->parameter(array('folder'=>$_POST['folder_id'])));
@@ -210,7 +210,7 @@ class Customer extends ApplicationModel {
 			$field = array('customer_juniorhighschool'=>'会社名',
 			'customer_juniorhighschool'=>'会社名(かな)',
 			'customer_couple'=>'部署',
-			'customer_name'=>'担当者',
+			'customer_lastname'=>'担当者',
 			'customer_gender'=>'役職',
 			'customer_postcode'=>'郵便番号',
 			'customer_address'=>'住所',
@@ -220,8 +220,8 @@ class Customer extends ApplicationModel {
 			'customer_email'=>'メールアドレス',
 			'customer_id'=>'URL');
 		} else {
-			$field = array('customer_name'=>'名前',
-			'customer_ruby'=>'かな',
+			$field = array('customer_lastname'=>'名前',
+			'customer_lastname_ruby'=>'かな',
 			'customer_postcode'=>'郵便番号',
 			'customer_address'=>'住所',
 			'customer_addressruby'=>'住所(かな)',

@@ -28,7 +28,7 @@ $liquid = new Liquid;
 		<tr><th>会社名<span class="necessary">(必須)</span></th><td><input type="text" name="customer_juniorhighschool" class="inputvalue" value="<?=$hash['data']['customer_juniorhighschool']?>" /></td></tr>
 		<tr><th>会社名（かな）</th><td><input type="text" name="customer_juniorhighschool" class="inputvalue" value="<?=$hash['data']['customer_juniorhighschool']?>" /></td></tr>
 		<tr><th>部署</th><td><input type="text" name="customer_couple" class="inputvalue" value="<?=$hash['data']['customer_couple']?>" /></td></tr>
-		<tr><th>担当者</th><td><input type="text" name="customer_name" class="inputvalue" value="<?=$hash['data']['customer_name']?>" /></td></tr>
+		<tr><th>担当者</th><td><input type="text" name="customer_lastname" class="inputvalue" value="<?=$hash['data']['customer_lastname']?>" /></td></tr>
 		<tr><th>役職</th><td><input type="text" name="customer_gender" class="inputvalue" value="<?=$hash['data']['customer_gender']?>" /></td></tr>
 		<tr><th>郵便番号</th><td>
 			<input type="text" name="customer_postcode" id="postcode" class="inputalpha" value="<?=$hash['data']['customer_postcode']?>" />&nbsp;

@@ -60,6 +60,22 @@ App.limit = function (sortby, desc, parameter) {
 		if (object && object.value.length > 0) {
 			array.push('search=' + object.value);
 		}
+		var object = document.getElementById('customer_graduate');
+		if (object && object.value.length > 0) {
+			array.push('customer_graduate=' + object.value);
+		}
+		var object = document.getElementById('customer_club');
+		if (object && object.value.length > 0) {
+			array.push('customer_club=' + object.value);
+		}
+		var object = document.getElementById('customer_name');
+		if (object && object.value.length > 0) {
+			array.push('customer_name=' + object.value);
+		}
+		var object = document.getElementById('customer_juniorhighschool');
+		if (object && object.value.length > 0) {
+			array.push('customer_juniorhighschool=' + object.value);
+		}
 		if (parameter) {
 			array.push(parameter);
 		}

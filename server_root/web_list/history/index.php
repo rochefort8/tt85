@@ -55,14 +55,14 @@ if ($view->authorize('administrator', 'manager', 'editor')) {
 	</div>
 </td><td>
 	<table class="list" cellspacing="0">
-		<tr><th><?=$pagination->sortby('customer_name', $caption)?></th>
+		<tr><th><?=$pagination->sortby('customer_lastname', $caption)?></th>
 		<?=$liquid->listheader($hash['item'], $pagination)?>
 		<th class="listlink">&nbsp;</th></tr>
 <?php
 if (is_array($hash['list']) && count($hash['list']) > 0) {
 	foreach ($hash['list'] as $row) {
 ?>
-		<tr><td><a href="customer.php?parent=<?=$row['customer_id']?>"><?=$row['customer_name']?></a>&nbsp;</td>
+		<tr><td><a href="customer.php?parent=<?=$row['customer_id']?>"><?=$row['customer_lastname']?></a>&nbsp;</td>
 		<?=$liquid->listcontent($hash['item'], $row)?>
 		<td><a href="view.php?id=<?=$row['id']?>">詳細</a></td></tr>
 <?php

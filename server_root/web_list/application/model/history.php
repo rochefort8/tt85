@@ -15,7 +15,7 @@ class History extends ApplicationModel {
 		'folder_id'=>array('except'=>array('search', 'update')),
 		'customer_id'=>array('except'=>array('search', 'update')),
 		'customer_type'=>array('except'=>array('search', 'update')),
-		'customer_name'=>array('except'=>array('update')));
+		'customer_lastname'=>array('except'=>array('update')));
 		for ($i = 0; $i < 20; $i++) {
 			$this->schema[sprintf('history_item%02d', $i)] = array();
 		}
@@ -66,9 +66,9 @@ class History extends ApplicationModel {
 				$this->post['customer_id'] = $hash['parent']['id'];
 				$this->post['customer_type'] = $hash['parent']['customer_type'];
 				if ($hash['parent']['customer_type'] == 1) {
-					$this->post['customer_name'] = $hash['parent']['customer_juniorhighschool'];
+					$this->post['customer_lastname'] = $hash['parent']['customer_juniorhighschool'];
 				} else {
-					$this->post['customer_name'] = $hash['parent']['customer_name'];
+					$this->post['customer_lastname'] = $hash['parent']['customer_lastname'];
 				}
 			} else {
 				$this->error[] = '顧客情報を取得できません。';
@@ -132,9 +132,9 @@ class History extends ApplicationModel {
 			if ($hash['parent']['customer_type'] == 1) {
 				$array[] = array('会社名', $hash['parent']['customer_juniorhighschool']);
 				$array[] = array('部署', $hash['parent']['customer_couple']);
-				$array[] = array('担当者', $hash['parent']['customer_name']);
+				$array[] = array('担当者', $hash['parent']['customer_lastname']);
 			} else {
-				$array[] = array('名前', $hash['parent']['customer_name']);
+				$array[] = array('名前', $hash['parent']['customer_lastname']);
 			}
 			$array[] = array('郵便番号', $hash['parent']['customer_postcode']);
 			$array[] = array('住所', $hash['parent']['customer_address']);
@@ -146,9 +146,9 @@ class History extends ApplicationModel {
 			$this->where[] = "(customer_type = ".intval($_GET['type']).")";
 			$folder = intval($_GET['folder']);
 			if ($_GET['type'] == 1) {
-				$field = array('customer_name'=>'会社名');
+				$field = array('customer_lastname'=>'会社名');
 			} else {
-				$field = array('customer_name'=>'名前');
+				$field = array('customer_lastname'=>'名前');
 			}
 		}
 		$data = $this->findAll('id', 1);

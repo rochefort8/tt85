@@ -27,8 +27,8 @@ $liquid = new Liquid;
 	<?=$view->error($hash['error'], '下記の顧客情報を削除します。')?>
 	<table class="view" cellspacing="0">
 		<tr><th>ID</th><td><?=$hash['data']['customer_id']?>&nbsp;</td></tr>
-		<tr><th>名前</th><td><?=$hash['data']['customer_name']?>&nbsp;</td></tr>
-		<tr><th>かな</th><td><?=$hash['data']['customer_ruby']?>&nbsp;</td></tr>
+		<tr><th>名前</th><td><?=$hash['data']['customer_lastname']?>&nbsp;</td></tr>
+		<tr><th>かな</th><td><?=$hash['data']['customer_lastname_ruby']?>&nbsp;</td></tr>
 		<tr><th>性別</th><td><?=$hash['data']['customer_gender']?>&nbsp;</td></tr>
 		<tr><th>郵便番号</th><td><?=$hash['data']['customer_postcode']?>&nbsp;</td></tr>
 		<tr><th>住所</th><td><?=$hash['data']['customer_address']?>&nbsp;</td></tr>

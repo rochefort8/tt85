@@ -16,7 +16,6 @@ class Pagination {
 		if (is_array($array)) {
 			$this->parameter = $array;
 		}
-	
 	}
 	
 	function create($count) {
@@ -107,8 +106,8 @@ class Pagination {
 			$result[] = 'customer_juniorhighschool='.htmlspecialchars($_REQUEST['customer_juniorhighschool'], ENT_QUOTES, 'UTF-8');
 		}
 
-		if ($_REQUEST['customer_name']) {
-			$result[] = 'customer_name='.htmlspecialchars($_REQUEST['customer_name'], ENT_QUOTES, 'UTF-8');
+		if ($_REQUEST['customer_lastname']) {
+			$result[] = 'customer_lastname='.htmlspecialchars($_REQUEST['customer_lastname'], ENT_QUOTES, 'UTF-8');
 		}
 
 		if (count($this->parameter) > 0) {

@@ -74,7 +74,23 @@ class View {
 		if (is_array($pagination->parameter) && count($pagination->parameter) > 0) {
 			foreach ($pagination->parameter as $key => $value) {
 				$array[] = $key.'='.$value;
+
 			}
+			/* */
+			if ($_REQUEST['customer_graduate']) {
+	$array[] = 'customer_graduate='.htmlspecialchars($_REQUEST['customer_graduate'], ENT_QUOTES, 'UTF-8');
+			}
+			if ($_REQUEST['customer_club']) {
+	$array[] = 'customer_club='.htmlspecialchars($_REQUEST['customer_club'], ENT_QUOTES, 'UTF-8');
+			}
+			if ($_REQUEST['customer_juniorhighschool']) {
+	$array[] = 'customer_juniorhighschool='.htmlspecialchars($_REQUEST['customer_juniorhighschool'], ENT_QUOTES, 'UTF-8');
+			}
+			if ($_REQUEST['customer_name']) {
+	$array[] = 'customer_name='.htmlspecialchars($_REQUEST['customer_name'], ENT_QUOTES, 'UTF-8');
+			}
+
+
 			$onchange = sprintf(' onchange="App.limit(\'%s\',\'%s\',\'%s\')"', $sort, $desc, implode('&', $array));
 		} else {
 			$onchange = sprintf(' onchange="App.limit(\'%s\',\'%s\')"', $sort, $desc);

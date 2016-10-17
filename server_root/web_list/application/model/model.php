@@ -60,7 +60,7 @@ class Model extends Connection {
 		}
 
 		/* Name */
-		$searchWhere = $this->searchWhereEx(array('customer_name','customer_ruby'),'customer_name') ;
+		$searchWhere = $this->searchWhereEx(array('customer_lastname','customer_lastname_ruby'),'customer_lastname') ;
 		if (strlen($searchWhere) > 0) {
 		   $array[] = $searchWhere;
 		}

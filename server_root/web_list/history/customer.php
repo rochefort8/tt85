@@ -32,11 +32,11 @@ if ($hash['parent']['customer_type'] == 1) {
 ?>
 	<tr><th>会社名</th><td><?=$hash['parent']['customer_juniorhighschool']?>&nbsp;</td></tr>
 	<tr><th>部署</th><td><?=$hash['parent']['customer_couple']?>&nbsp;</td></tr>
-	<tr><th>担当者</th><td><?=$hash['parent']['customer_name']?>&nbsp;</td></tr>
+	<tr><th>担当者</th><td><?=$hash['parent']['customer_lastname']?>&nbsp;</td></tr>
 <?php
 } else {
 ?>
-	<tr><th>名前</th><td><?=$hash['parent']['customer_name']?>&nbsp;</td></tr>
+	<tr><th>名前</th><td><?=$hash['parent']['customer_lastname']?>&nbsp;</td></tr>
 <?php
 }
 ?>

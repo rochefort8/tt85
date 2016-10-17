@@ -14,7 +14,7 @@ function display_graduate_options($selected_item) {
 	    $selected_item = $_REQUEST[$key] ;
 	 }
 
-	 $string = "<option value=\"\" disabled selected style=\"display:none;\">卒業期</option>" ;
+	 $string = "<option value=\"\" selected style=\"display:none;\">卒業期</option>" ;
 
 	 $year = 1950;
 	 $graduate = $year - 1902 ;
@@ -64,7 +64,7 @@ function display_club_options($selected_item) {
 	    $selected_item = $_REQUEST[$key] ;
 	 }
 
-	 $string = "<option value=\"\" disabled selected style=\"display:none;\">部活動</option>" ;
+	 $string = "<option value=\"\" selected style=\"display:none;\">部活動</option>" ;
 
 	 for ($n = 0;$n < count($array);$n++) {
 	     	 $item = $array[$n] ;
@@ -102,7 +102,7 @@ function display_juniorhighschool_options($selected_item) {
 	    $selected_item = $_REQUEST[$key] ;
 	 }
 
-	 $string = "<option value=\"\" disabled selected style=\"display:none;\">出身中学</option>" ;
+	 $string = "<option value=\"\" selected style=\"display:none;\">出身中学</option>" ;
 
 	 for ($n = 0;$n < count($array);$n++) {
 	     	 $item = $array[$n] ;
