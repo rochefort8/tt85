@@ -31,10 +31,8 @@ if ($view->permitted($hash['category'], 'add')) {
 </ul>
 <table class="view" cellspacing="0">
 	<tr><th>ID</th><td><?=$hash['data']['customer_id']?>&nbsp;</td></tr>
-	<tr><th>姓</th><td><?=$hash['data']['customer_lastname']?>&nbsp;</td></tr>
-	<tr><th>名</th><td><?=$hash['data']['customer_firstname']?>&nbsp;</td></tr>
-	<tr><th>かな</th><td><?=$hash['data']['customer_lastname_ruby']?>&nbsp;</td></tr>
-	<tr><th>かな</th><td><?=$hash['data']['customer_firstname_ruby']?>&nbsp;</td></tr>
+	<tr><th>名前</th><td><?=$hash['data']['customer_lastname']?> <?=$hash['data']['customer_firstname']?>&nbsp;</td></tr>
+	<tr><th>かな</th><td><?=$hash['data']['customer_lastname_ruby']?> <?=$hash['data']['customer_firstname_ruby']?>&nbsp;</td></tr>
 	<tr><th>性別</th><td><?=$hash['data']['customer_gender']?>&nbsp;</td></tr>
 	<tr><th>卒業期</th><td><?=$hash['data']['customer_graduate']?>&nbsp;</td></tr>
 	<tr><th>メールアドレス</th><td><?=$hash['data']['customer_email']?>&nbsp;</td></tr>
