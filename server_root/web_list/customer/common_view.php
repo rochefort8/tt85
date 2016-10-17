@@ -6,7 +6,14 @@ function display_graduate_list($selected_graduate,$name = 'customer_graduate') {
 	 return $string ;
 }
 
-function display_graduate_options($selected_graduate) {
+function display_graduate_options($selected_item) {
+
+	 $key='customer_graduate' ;
+
+	 if (($selected_item == null) && isset($_REQUEST[$key]) && strlen($_REQUEST[$key]) > 0) {	 
+	    $selected_item = $_REQUEST[$key] ;
+	 }
+
 	 $string = "<option value=\"\"></option>";
 
 	 $year = 1950;
@@ -15,7 +22,7 @@ function display_graduate_options($selected_graduate) {
 
 	 for (;$year < 1989;$year++,$graduate++,$gengo++) {
 	     	 $selected="" ;
-	     	 if ( $graduate == $selected_graduate ) {
+	     	 if ( $graduate == $selected_item ) {
 		    $selected = "selected" ;
 		 } 
 	  	 $string .= "<option value=\"${graduate}\" ${selected}>${graduate}期(${year}年/昭和${gengo}年卒業)</option>";
@@ -25,7 +32,7 @@ function display_graduate_options($selected_graduate) {
 
 	 for (;$year < 2018;$year++,$graduate++,$gengo++) {
 	     	 $selected="" ;
-	     	 if ( $graduate == $selected_graduate ) {
+	     	 if ( $graduate == $selected_item ) {
 		    $selected = "selected" ;
 		 } 
 	  	 $string .= "<option value=\"${graduate}\" ${selected}>${graduate}期(${year}年/ 平成${gengo}年卒業)</option>";
@@ -51,6 +58,13 @@ function display_club_options($selected_item) {
 		  "地学","茶道","軟式テニス","美術","文芸","弁論","放送","野球","理化部化学班",
 		  "理化部地学班","陸上","その他"
 		  );
+
+	 $key='customer_club' ;
+
+	 if (($selected_item == null) && isset($_REQUEST[$key]) && strlen($_REQUEST[$key]) > 0) {	 
+	    $selected_item = $_REQUEST[$key] ;
+	 }
+
 	 $string = "";
 	 for ($n = 0;$n < count($array);$n++) {
 	     	 $item = $array[$n] ;
@@ -82,6 +96,12 @@ function display_juniorhighschool_options($selected_item) {
 	      "大之浦中","中央中","中間中","中間東中","中間南中","直方一中","直方三中","直方二中",
 	      "槻田中","東筑中","洞北中","二島中","日新館中","博多女子中","八児中","板櫃中",
 	      "尾倉中","福教大付属小倉中","福教大付属中","本城中","明治学園中","木屋瀬中","その他") ;
+
+	 $key='customer_juniorhighschool' ;
+
+	 if (($selected_item == null) && isset($_REQUEST[$key]) && strlen($_REQUEST[$key]) > 0) {	 
+	    $selected_item = $_REQUEST[$key] ;
+	 }
 
 	 $string = "" ;
 	 for ($n = 0;$n < count($array);$n++) {

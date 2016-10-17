@@ -168,22 +168,23 @@ class ApplicationView extends View {
 	function searchform($parameter = null) {
 		$string = '<form method="post" class="searchform" action="';
 		$string .= $_SERVER['SCRIPT_NAME'].$this->parameter($parameter);
-		$string .= '"><input type="text" name="customer_name" id="search" class="inputsearch" value="';
-		$string .= '" />';
+		$string .= '">';
+
+		$string .= '<select name="customer_graduate" onChange="this.form.submit()">' ;
+		$string .= display_graduate_options() ;
+		$string .= '</select>' ;
+		$string .= '<input type="text" name="customer_name" id="search" class="inputsearch" value="" />';
 
 		$string .= '<select name="customer_juniorhighschool" onChange="this.form.submit()">' ;
-		$string .= display_juniorhighschool_options('85') ;
+		$string .= display_juniorhighschool_options() ;
 		$string .= '</select>' ;
 
 		$string .= '<select name="customer_club" onChange="this.form.submit()">' ;
-		$string .= display_club_options('A') ;
+		$string .= display_club_options() ;
 		$string .= '</select>' ;
-
-		$string .= '<select name="customer_graduate" onChange="this.form.submit()">' ;
-		$string .= display_graduate_options('85') ;
-		$string .= '</select>' ;
-
+		$string .= '<input type="text" name="search" id="search" class="inputsearch" value="" />';
 		$string .= '<input type="submit" value="検索--" /></form>';
+		$string .= '</form>';
 		return $string;
 		
 	}

@@ -95,6 +95,22 @@ class Pagination {
 		if ($_REQUEST['search']) {
 			$result[] = 'search='.htmlspecialchars($_REQUEST['search'], ENT_QUOTES, 'UTF-8');
 		}
+		if ($_REQUEST['customer_graduate']) {
+			$result[] = 'customer_graduate='.htmlspecialchars($_REQUEST['customer_graduate'], ENT_QUOTES, 'UTF-8');
+		}
+
+		if ($_REQUEST['customer_club']) {
+			$result[] = 'customer_club='.htmlspecialchars($_REQUEST['customer_club'], ENT_QUOTES, 'UTF-8');
+		}
+
+		if ($_REQUEST['customer_juniorhighschool']) {
+			$result[] = 'customer_juniorhighschool='.htmlspecialchars($_REQUEST['customer_juniorhighschool'], ENT_QUOTES, 'UTF-8');
+		}
+
+		if ($_REQUEST['customer_name']) {
+			$result[] = 'customer_name='.htmlspecialchars($_REQUEST['customer_name'], ENT_QUOTES, 'UTF-8');
+		}
+
 		if (count($this->parameter) > 0) {
 			foreach ($this->parameter as $key => $value) {
 				if (strlen($value) > 0) {
